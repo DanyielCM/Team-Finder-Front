@@ -1,5 +1,6 @@
-# Project instalation
+# Frontend
+## Project instalation
 - npm install
 
-# Running local server
+## Running local server
 - npm run dev
