@@ -1,14 +1,14 @@
 
 
 
-.logo-container{
+.nav-logo-container{
     color: white;
     font-weight: bold;
     font-size: 30px;
   }
   
   
-  .header{
+  .nav-header{
   
   top: 0;
   left: 0;
@@ -19,4 +19,32 @@
   align-items: center;
   
   
+  }
+
+
+  .nav-btn {
+    padding: 12.5px 100px;
+    border: 0;
+    width: 250px;
+    font-size: 20px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    color: #ff0000;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+  }
+  
+  .nav-btn:hover {
+    background-color: #ffe600;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+  .nav-btn:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
   }
