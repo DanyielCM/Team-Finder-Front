@@ -5,12 +5,12 @@ import "./start-page-navbar.css";
 export default function Navbar() {
   return (
     <>
-      <header className="header">
-        <div className="logo-container">
+      <header className="nav-header">
+        <div className="nav-logo-container">
           <span>TEAMFINDER</span>
         </div>
-        <nav className="navbar">
-          <button className="btn">Login</button>
+        <nav className="nav-navbar">
+          <button className="nav-btn">Login</button>
         </nav>
       </header>
     </>

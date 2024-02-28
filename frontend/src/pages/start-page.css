@@ -1,4 +1,4 @@
-.main-page {
+.start-main-page {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,7 +7,7 @@
   margin-right: 5%;
 }
 
-.right-container {
+.start-right-container {
   background-image: url("/assets/main-page-logo.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
   height: 60%;
 }
 
-.left-container {
+.start-left-container {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ h4 {
   font-size: 25px;
 }
 
-.btn {
+.start-btn {
   padding: 12.5px 30px;
   border: 0;
 
@@ -52,13 +52,13 @@ h4 {
   -webkit-transition: all 0.5s;
 }
 
-.btn:hover {
+.start-btn:hover {
   background-color: #ffe600;
   box-shadow: 0 0 20px #6fc5ff50;
   transform: scale(1.1);
 }
 
-.btn:active {
+.start-btn:active {
   background-color: #3d94cf;
   transition: all 0.25s;
   -webkit-transition: all 0.25s;
