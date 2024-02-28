@@ -1,30 +1,27 @@
-.App {
-  height: 100vh;
-  background-image: url("/assets/Background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+.user-main-page{
 
-.register-main-page{
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    
+    
     }
     
-    .register-right-container{
+    .user-right-container{
+    
     background-image: url("/assets/main-page-logo.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size:contain;
     width: 40%;
     height: 60%;
+    
     }
     
-    .register-left-container2{
+    .user-left-container2{
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -46,7 +43,7 @@
       font-size: 25px;
     }
     
-    .register-btn {
+    .user-btn {
       padding: 12.5px 30px;
       border: 0;
       
@@ -58,19 +55,21 @@
       -webkit-transition: all 0.5s;
     }
     
-    .register-btn:hover {
+    .user-btn:hover {
+      background-color: #ffe600;
       box-shadow: 0 0 20px #6fc5ff50;
       transform: scale(1.1);
     }
     
-    .register-btn:active {
+    .user-btn:active {
+      background-color: #3d94cf;
       transition: all 0.25s;
       -webkit-transition: all 0.25s;
       box-shadow: none;
       transform: scale(0.98);
     }
     
-    .register-form {
+    .user-form {
         background-color: #ffffff;
         border-radius: 20px;
         box-sizing: border-box;
@@ -79,15 +78,17 @@
         width: 400px;
       }
       
-      .register-title {
+      .user-title {
         color: #000000;
         font-family: sans-serif;
         font-size: 36px;
         font-weight: 600;
         margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
       }
       
-      .register-subtitle {
+      .user-subtitle {
         color: #000000;
         font-family: sans-serif;
         font-size: 16px;
@@ -95,22 +96,22 @@
         margin-top: 10px;
       }
       
-      .register-input-container {
+      .user-input-container {
         height: 50px;
         position: relative;
         width: 100%;
       }
       
-      .register-ic1 {
+      .user-ic1 {
         margin-top: 40px;
       }
       
-      .register-ic2 {
+      .user-ic2 {
         margin-top: 30px;
       }
       
-      .register-input {
-        background-color: #d1e7e1;
+      .user-input {
+        background-color: #ffd98e;
         border-radius: 12px;
         border: 10px;
         border-color: #000000;
@@ -121,9 +122,11 @@
         outline: 0;
         padding: 4px 20px 0;
         width: 100%;
+        
       }
       
-      .register-placeholder {
+      
+      .user-placeholder {
         color: #000000;
         font-family: sans-serif;
         left: 20px;
@@ -135,42 +138,33 @@
         top: 20px;
       }
       
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      input:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 30px #d1e7e1 inset !important;
-      }
-      
-      input:focus {
-        border: 2px solid #2d9596;
-      }      
-
-      .register-input:focus ~ .register-placeholder,
-      .register-input:not(:placeholder-shown) ~ .register-placeholder {
+      .user-input:focus ~ .user-placeholder,
+      .user-input:not(:placeholder-shown) ~ .user-placeholder {
         transform: translateY(-40px) translateX(10px) scale(0.80);
       }
       
-      .register-input:focus ~ .register-placeholder {
+      .user-input:focus ~ .user-placeholder {
         color: #000000;
       }
       
-      .register-submit {
-        background-color: #2d9596;
+      .user-submit {
+        background-color: #08d;
         border-radius: 12px;
         border: 0;
         box-sizing: border-box;
-        color: #fff;
+        color: #eee;
         cursor: pointer;
         font-size: 18px;
-        height: 45px;
-        margin-top: 20px;
-        float: right;
+        height: 50px;
+        margin-top: 38px;
+       
         text-align: center;
-        width: 30%;
+        width: 100%;
       }
       
-      .register-submit:active {
-        background-color: #227172;
+      .user-submit:active {
+        background-color: #06b;
       }
+      
+      
       

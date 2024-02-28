@@ -48,90 +48,90 @@ export default function OrgRegisterPage() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      <div className="main-page">
-        <div className="left-container2">
-          <div class="form">
-            <div class="title">Welcome</div>
-            <div class="subtitle">
+      <div className="register-main-page">
+        <div className="register-left-container2">
+          <div className="register-form">
+            <div className="register-title">Welcome</div>
+            <div className="register-subtitle">
               Create an organisation administrator account
             </div>
-            <div class="input-container ic1">
+            <div className="register-input-container register-ic1">
               <input
                 id="name"
-                class="input"
+                className="register-input"
                 type="text"
                 placeholder=" "
                 value={name}
                 onChange={handleNameChange}
               />
-              <div class="cut"></div>
-              <label for="name" class="placeholder">
+              <div className="cut"></div>
+              <label for="name" className="register-placeholder">
                 Name(name of individual)
               </label>
             </div>
-            <div class="input-container ic2">
+            <div className="register-input-container register-ic2">
               <input
                 id="email"
-                class="input"
+                className="register-input"
                 type="email"
                 placeholder=" "
                 value={email}
                 onChange={handleEmailChange}
               />
-              <div class="cut"></div>
-              <label for="email" class="placeholder">
+              <div className="cut"></div>
+              <label for="email" className="register-placeholder">
                 Email
               </label>
             </div>
-            <div class="input-container ic2">
+            <div className="register-input-container register-ic2">
               <input
                 id="password"
-                class="input"
+                className="register-input"
                 type="password"
                 placeholder=" "
                 value={password}
                 onChange={handlePasswordChange}
               />
-              <div class="cut cut-short"></div>
-              <label for="email" class="placeholder">
+              <div className="cut-short"></div>
+              <label for="email" className="register-placeholder">
                 Password
               </label>
             </div>
-            <div class="input-container ic2">
+            <div class="register-input-container register-ic2">
               <input
                 id="org-name"
-                class="input"
+                className="register-input"
                 type="text"
                 placeholder=" "
                 value={organisation}
                 onChange={handleOrganisationChange}
               />
-              <div class="cut cut-short"></div>
-              <label for="email" class="placeholder">
+              <div className="cut-short"></div>
+              <label for="email" className="register-placeholder">
                 Name of organisation
               </label>
             </div>
-            <div class="input-container ic2">
+            <div className="register-input-container register-ic2">
               <input
                 id="headq-addr"
-                class="input"
+                className="register-input"
                 type="text"
                 placeholder=" "
                 value={address}
                 onChange={handleAddressChange}
               />
-              <div class="cut cut-short"></div>
-              <label for="email" class="placeholder">
+              <div class="cut-short"></div>
+              <label for="email" className="register-placeholder">
                 Headquarter address
               </label>
             </div>
-            <button type="text" class="submit" onClick={handleSubmit}>
+            <button type="text" className="register-submit" onClick={handleSubmit}>
               Submit
             </button>
           </div>
         </div>
 
-        <div className="right-container"></div>
+        <div className="register-right-container"></div>
       </div>
     </div>
   );

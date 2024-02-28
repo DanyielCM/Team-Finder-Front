@@ -1,0 +1,163 @@
+.sign-in-main-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.sign-in-right-container {
+  background-image: url("/assets/main-page-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40%;
+  height: 60%;
+}
+
+.sign-in-left-container2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 25px;
+}
+
+.sign-in-btn {
+  padding: 12.5px 30px;
+  border: 0;
+
+  border-radius: 100px;
+  background-color: #ffffff;
+  color: #ff0000;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.sign-in-btn:hover {
+  background-color: #ffe600;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+.sign-in-btn:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.sign-in-form {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 650px;
+  padding: 20px;
+  width: 400px;
+}
+
+.sign-in-title {
+  color: #000000;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sign-in-subtitle {
+  color: #000000;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.sign-in-input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.sign-in-ic1 {
+  margin-top: 40px;
+}
+
+.sign-in-ic2 {
+  margin-top: 30px;
+}
+
+.sign-in-input {
+  background-color: #ffd98e;
+  border-radius: 12px;
+  border: 10px;
+  border-color: #000000;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.sign-in-placeholder {
+  color: #000000;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.sign-in-input:focus ~ .sign-in-placeholder,
+.sign-in-input:not(:placeholder-shown) ~ .sign-in-placeholder {
+  transform: translateY(-40px) translateX(10px) scale(0.8);
+}
+
+.sign-in-input:focus ~ .sign-in-placeholder {
+  color: #000000;
+}
+
+.sign-in-submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+
+  text-align: center;
+  width: 100%;
+}
+
+.sign-in-submit:active {
+  background-color: #06b;
+}
