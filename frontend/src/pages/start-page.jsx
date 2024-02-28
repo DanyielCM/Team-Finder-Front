@@ -5,7 +5,7 @@ import Navbar from "../components/start-page-navbar.jsx";
 
 export default function StartPage() {
   return (
-    <>
+    <div className="App">
       <Navbar></Navbar>
       <div className="main-page">
         <div className="left-container">
@@ -27,6 +27,6 @@ export default function StartPage() {
 
         <div className="right-container"></div>
       </div>
-    </>
+    </div>
   );
 }

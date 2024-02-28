@@ -1,3 +1,13 @@
+
+.App {
+  height: 100vh;
+  background-image: url("/assets/Background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
 .main-page {
   display: flex;
   justify-content: space-around;
@@ -40,12 +50,17 @@ h4 {
   font-size: 25px;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 .btn {
   padding: 12.5px 30px;
   border: 0;
-
+  text-decoration: none;
   border-radius: 100px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #ff0000;
   font-weight: Bold;
   transition: all 0.5s;
@@ -53,13 +68,11 @@ h4 {
 }
 
 .btn:hover {
-  background-color: #ffe600;
   box-shadow: 0 0 20px #6fc5ff50;
   transform: scale(1.1);
 }
 
 .btn:active {
-  background-color: #3d94cf;
   transition: all 0.25s;
   -webkit-transition: all 0.25s;
   box-shadow: none;

@@ -46,7 +46,7 @@ export default function OrgRegisterPage() {
   };
 
   return (
-    <>
+    <div className="App">
       <Navbar></Navbar>
       <div className="main-page">
         <div className="left-container2">
@@ -126,13 +126,13 @@ export default function OrgRegisterPage() {
               </label>
             </div>
             <button type="text" class="submit" onClick={handleSubmit}>
-              submit
+              Submit
             </button>
           </div>
         </div>
 
         <div className="right-container"></div>
       </div>
-    </>
+    </div>
   );
 }
