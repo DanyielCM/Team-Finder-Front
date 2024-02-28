@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import StartPage from "./pages/start-page.js";
-import OrgRegisterPage from "./pages/org-register-page.js";
+import StartPage from "./pages/start-page.jsx";
+import OrgRegisterPage from "./pages/org-register-page.jsx";
 
 function App() {
   return (

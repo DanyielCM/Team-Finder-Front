@@ -1,7 +1,7 @@
 import "./start-page.css";
 import { Outlet, Link } from "react-router-dom";
 
-import Navbar from "../components/start-page-navbar.js";
+import Navbar from "../components/start-page-navbar.jsx";
 
 export default function StartPage() {
   return (

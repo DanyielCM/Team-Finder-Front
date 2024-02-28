@@ -1,5 +1,5 @@
 import "./org-register-page.css";
-import Navbar from "../components/start-page-navbar.js";
+import Navbar from "../components/start-page-navbar.jsx";
 
 import React, { useState } from "react";
 
