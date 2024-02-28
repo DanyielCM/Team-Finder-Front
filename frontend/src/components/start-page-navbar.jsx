@@ -10,7 +10,9 @@ export default function Navbar() {
           <span>TEAMFINDER</span>
         </div>
         <nav className="nav-navbar">
-          <button className="nav-btn">Login</button>
+          
+          <Link to="/sign-in" className='nav-btn'>Login</Link>{" "}
+        
         </nav>
       </header>
     </>

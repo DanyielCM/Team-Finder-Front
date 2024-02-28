@@ -19,9 +19,9 @@ export default function StartPage() {
 
           <div className="start-create-org">
             <h2>Launch Your Organization's Journey</h2>
-            <button type="button" className="start-btn">
-              <Link to="/register">Create an organisation</Link>{" "}
-            </button>
+           
+              <Link to="/register" className="start-btn">Create an organisation</Link>{" "}
+           
           </div>
         </div>
 
