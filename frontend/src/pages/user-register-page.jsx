@@ -10,13 +10,11 @@ export default function UserRegisterPage() {
   const [organisation, setOrganisation] = useState("");
   const [address, setAddress] = useState("");
 
-
   const getFormData = () => {
     return {
       name,
       email,
       password,
-      
     };
   };
   const handleNameChange = (e) => {
@@ -31,8 +29,6 @@ export default function UserRegisterPage() {
     setPassword(e.target.value);
   };
 
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,15 +36,13 @@ export default function UserRegisterPage() {
   };
 
   return (
-    <>
+    <div className="background">
       <Navbar></Navbar>
       <div className="register-main-page">
         <div className="register-left-container2">
           <div className="user-form">
             <div className="user-title">Welcome</div>
-            <div className="user-subtitle">
-              Create an user account
-            </div>
+            <div className="user-subtitle">Create an user account</div>
             <div className="user-input-container user-ic1">
               <input
                 id="name"
@@ -91,7 +85,7 @@ export default function UserRegisterPage() {
                 Password
               </label>
             </div>
-          
+
             <button type="text" className="user-submit" onClick={handleSubmit}>
               submit
             </button>
@@ -100,6 +94,6 @@ export default function UserRegisterPage() {
 
         <div className="user-right-container"></div>
       </div>
-    </>
+    </div>
   );
 }

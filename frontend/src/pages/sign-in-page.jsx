@@ -4,21 +4,15 @@ import Navbar from "../components/start-page-navbar.jsx";
 import React, { useState } from "react";
 
 export default function SignInPage() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-
   const getFormData = () => {
     return {
-      
       email,
       password,
-      
     };
   };
-
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -28,8 +22,6 @@ export default function SignInPage() {
     setPassword(e.target.value);
   };
 
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -37,16 +29,14 @@ export default function SignInPage() {
   };
 
   return (
-    <>
+    <div className="background">
       <Navbar></Navbar>
       <div className="register-main-page">
         <div className="register-left-container2">
           <div className="user-form">
             <div className="user-title">Welcome</div>
-            <div className="user-subtitle">
-              Please enter email and password
-            </div>
-           
+            <div className="user-subtitle">Please enter email and password</div>
+
             <div className="user-input-container user-ic2">
               <input
                 id="email"
@@ -75,15 +65,15 @@ export default function SignInPage() {
                 Password
               </label>
             </div>
-          
+
             <button type="text" className="user-submit" onClick={handleSubmit}>
-              submit
+              Submit
             </button>
           </div>
         </div>
 
         <div className="user-right-container"></div>
       </div>
-    </>
+    </div>
   );
 }

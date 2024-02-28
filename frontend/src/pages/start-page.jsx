@@ -5,7 +5,7 @@ import Navbar from "../components/start-page-navbar.jsx";
 
 export default function StartPage() {
   return (
-    <div className="App">
+    <div className="background">
       <Navbar></Navbar>
       <div className="start-main-page">
         <div className="start-left-container">
@@ -19,9 +19,9 @@ export default function StartPage() {
 
           <div className="start-create-org">
             <h2>Launch Your Organization's Journey</h2>
-           
-              <Link to="/register" className="start-btn">Create an organisation</Link>{" "}
-           
+            <Link to="/register" className="start-btn">
+              Create an organisation
+            </Link>{" "}
           </div>
         </div>
 

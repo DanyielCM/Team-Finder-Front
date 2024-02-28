@@ -46,7 +46,7 @@ export default function OrgRegisterPage() {
   };
 
   return (
-    <div className="App">
+    <div className="background">
       <Navbar></Navbar>
       <div className="register-main-page">
         <div className="register-left-container2">
@@ -125,7 +125,11 @@ export default function OrgRegisterPage() {
                 Headquarter address
               </label>
             </div>
-            <button type="text" className="register-submit" onClick={handleSubmit}>
+            <button
+              type="text"
+              className="register-submit"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>
