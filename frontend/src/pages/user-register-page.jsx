@@ -10,11 +10,13 @@ export default function UserRegisterPage() {
   const [organisation, setOrganisation] = useState("");
   const [address, setAddress] = useState("");
 
+
   const getFormData = () => {
     return {
       name,
       email,
       password,
+      
     };
   };
   const handleNameChange = (e) => {
@@ -29,20 +31,47 @@ export default function UserRegisterPage() {
     setPassword(e.target.value);
   };
 
+ 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Form submitted:", getFormData());
-  };
+    const formData = getFormData();
+
+    fetch('localhost:8080/createOrganization', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Adjust content type as per your API requirement
+        },
+        body: JSON.stringify(formData), // Convert your form data to JSON string
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('POST request successful:', data);
+        // Handle response data here
+    })
+    .catch(error => {
+        console.error('There was a problem with the POST request:', error);
+        // Handle errors here
+    });
+};
+
 
   return (
-    <div className="background">
+    <>
       <Navbar></Navbar>
       <div className="register-main-page">
         <div className="register-left-container2">
           <div className="user-form">
             <div className="user-title">Welcome</div>
-            <div className="user-subtitle">Create an user account</div>
+            <div className="user-subtitle">
+              Create an user account
+            </div>
             <div className="user-input-container user-ic1">
               <input
                 id="name"
@@ -85,7 +114,7 @@ export default function UserRegisterPage() {
                 Password
               </label>
             </div>
-
+          
             <button type="text" className="user-submit" onClick={handleSubmit}>
               submit
             </button>
@@ -94,6 +123,6 @@ export default function UserRegisterPage() {
 
         <div className="user-right-container"></div>
       </div>
-    </div>
+    </>
   );
 }

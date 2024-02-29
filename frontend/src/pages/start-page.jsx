@@ -1,14 +1,11 @@
 import "./start-page.css";
-
-import { useNavigate } from "react-router-dom";
-import Button from "../components/common/Button.jsx";
+import { Outlet, Link } from "react-router-dom";
 
 import Navbar from "../components/start-page-navbar.jsx";
 
 export default function StartPage() {
-  const navigate = useNavigate();
   return (
-    <div className="background">
+    <>
       <Navbar></Navbar>
       <div className="start-main-page">
         <div className="start-left-container">
@@ -22,17 +19,14 @@ export default function StartPage() {
 
           <div className="start-create-org">
             <h2>Launch Your Organization's Journey</h2>
-
-    
-            <Button onClick={() => navigate("/register")}>
-              Create an Organisation
-            </Button>
-
+           
+              <Link to="/register" className="start-btn">Create an organisation</Link>{" "}
+           
           </div>
         </div>
 
         <div className="start-right-container"></div>
       </div>
-    </div>
+    </>
   );
 }

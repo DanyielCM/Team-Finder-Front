@@ -1,4 +1,3 @@
-
 .sign-in-main-page{
 
     display: flex;
@@ -44,7 +43,31 @@
       font-size: 25px;
     }
     
-
+    .sign-in-btn {
+      padding: 12.5px 30px;
+      border: 0;
+      
+      border-radius: 100px;
+      background-color: #ffffff;
+      color: #ff0000;
+      font-weight: Bold;
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+    }
+    
+    .sign-in-btn:hover {
+      background-color: #ffe600;
+      box-shadow: 0 0 20px #6fc5ff50;
+      transform: scale(1.1);
+    }
+    
+    .sign-in-btn:active {
+      background-color: #3d94cf;
+      transition: all 0.25s;
+      -webkit-transition: all 0.25s;
+      box-shadow: none;
+      transform: scale(0.98);
+    }
     
     .sign-in-form {
         background-color: #ffffff;
@@ -144,5 +167,4 @@
       }
       
       
-     
-
+      
