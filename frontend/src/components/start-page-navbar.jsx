@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
-import Button from "./commons/Button.jsx";
+import Button from "./common/Button.jsx";
 
 import "./start-page-navbar.css";
 
