@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./form.css";
+import "./Form.css";
 
 const Form = ({ title, subtitle, onSubmit, fields }) => {
   const [formData, setFormData] = useState({});
@@ -15,7 +15,8 @@ const Form = ({ title, subtitle, onSubmit, fields }) => {
   };
 
   return (
-    <div className="form-form">
+    <div className="container">
+       <div className="form-form">
       <div className="title">{title && <p>{title}</p>}</div>
       <div className="form-subtitle">{subtitle && <p>{subtitle}</p>}</div>
       <form onSubmit={handleSubmit}>
@@ -38,6 +39,9 @@ const Form = ({ title, subtitle, onSubmit, fields }) => {
         </button>
       </form>
     </div>
+    <div className="logo-container"><img className="logo-img" src="/assets/Main logo elements2.svg" alt="logo" /></div>
+    </div>
+   
   );
 };
 

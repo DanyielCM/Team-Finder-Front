@@ -1,3 +1,11 @@
+.background {
+  height: 100vh;
+  background-image: url("/assets/Background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .start-main-page {
   display: flex;
   justify-content: space-around;
@@ -22,22 +30,17 @@
   flex-direction: column;
   justify-content: space-around;
   height: 60%;
+
 }
 
-h1,
-h2,
-h3,
-h4 {
+
+
+.start-title {
+  font-size: 60px;
   color: white;
 }
-h1 {
-  font-size: 60px;
-}
-h2 {
+.start-subtitle {
   font-size: 30px;
+  color: white;
 }
-h4 {
-  font-size: 25px;
-}
-
 

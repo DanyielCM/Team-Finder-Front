@@ -1,15 +1,10 @@
+.nav-logo-container {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
 
-
-
-.nav-logo-container{
-    color: white;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  
-  .nav-header{
-  
+.nav-header {
   top: 0;
   left: 0;
   width: 100;
@@ -17,6 +12,4 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  
-  }
+}
