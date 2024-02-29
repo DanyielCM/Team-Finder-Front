@@ -18,7 +18,7 @@ export default function StartPage() {
     console.log('Form submitted with data:', formData);
   };
   return (
-    <>
+    <div className="background">
       <Navbar></Navbar>
       <div className="start-main-page">
         <div className="start-left-container">
@@ -33,16 +33,17 @@ export default function StartPage() {
           <div className="start-create-org">
             <h2>Launch Your Organization's Journey</h2>
 
+    
             <Button onClick={() => navigate("/register")}>
               Create an Organisation
             </Button>
-           
+
           </div>
           
         </div>
 
         <div className="start-right-container"></div>
       </div>
-    </>
+    </div>
   );
 }
