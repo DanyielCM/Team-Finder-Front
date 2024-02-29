@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +9,7 @@ import SignInPage from "./pages/sign-in-page.jsx";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Routes>
         {}
         <Route exact path="/" element={<StartPage />} />
@@ -20,7 +19,7 @@ function App() {
         <Route path="/register-user" element={<UserRegisterPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
