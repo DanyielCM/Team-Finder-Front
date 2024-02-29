@@ -1,9 +1,12 @@
 import "./start-page.css";
-import { Outlet, Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+import Button from "../components/commons/Button.jsx";
 
 import Navbar from "../components/start-page-navbar.jsx";
 
 export default function StartPage() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar></Navbar>
@@ -19,9 +22,10 @@ export default function StartPage() {
 
           <div className="start-create-org">
             <h2>Launch Your Organization's Journey</h2>
-           
-              <Link to="/register" className="start-btn">Create an organisation</Link>{" "}
-           
+
+            <Button onClick={() => navigate("/register")}>
+              Create an Organisation
+            </Button>
           </div>
         </div>
 

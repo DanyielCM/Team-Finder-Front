@@ -1,8 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
+import Button from "./commons/Button.jsx";
+
 import "./start-page-navbar.css";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <>
       <header className="nav-header">
@@ -11,7 +15,9 @@ export default function Navbar() {
         </div>
         <nav className="nav-navbar">
           
-          <Link to="/sign-in" className='nav-btn'>Login</Link>{" "}
+           <Button onClick={() => navigate("/sign-in")}>
+              Login
+            </Button>
         
         </nav>
       </header>
