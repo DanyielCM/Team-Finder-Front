@@ -4,6 +4,7 @@ import com.letsdoit.TeamFinder.domain.Organization;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+// This interface is used to interact with the database with CRUD operations
 @Repository
 public interface OrganizationRepository  extends JpaRepository<Organization, Integer> {
         Organization findByUserName(String userName);

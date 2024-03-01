@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+// This class is used to create a table in the database
 @Data
 @Builder
 @NoArgsConstructor

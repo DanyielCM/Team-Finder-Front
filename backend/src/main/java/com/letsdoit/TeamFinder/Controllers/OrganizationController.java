@@ -12,6 +12,7 @@ import com.letsdoit.TeamFinder.services.OrganizationService;
 @RestController
 @RequestMapping("/api")
 public class OrganizationController {
+    // This class is used to create the endpoints for the organization
 
     private final OrganizationService organizationService;
 
@@ -19,7 +20,7 @@ public class OrganizationController {
     public OrganizationController(OrganizationService organizationService) {
         this.organizationService = organizationService;
     }
-
+    // This method is used to create an organization
     @PostMapping("/createOrganization")
     public ResponseEntity createOrganization(@RequestBody Organization organization) {
         try{
@@ -32,6 +33,7 @@ public class OrganizationController {
         }
     }
 
+    // This method is used to get an organization
     @GetMapping("/getOrganization/{organizationId}")
     public ResponseEntity getOrganization(@PathVariable("organizationId") Integer id) {
         try{
@@ -42,6 +44,7 @@ public class OrganizationController {
         }
     }
 
+    // This method is used to delete an organization
     @DeleteMapping("/deleteOrganization/{id}")
     public ResponseEntity deleteOrganization(@PathVariable("id") Integer id) {
         try{

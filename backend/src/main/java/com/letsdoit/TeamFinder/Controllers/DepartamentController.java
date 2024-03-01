@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class DepartamentController {
 
+    // This class is used to create the endpoints for the department
     private final DepartamentServices departamentServices;
     @Autowired
     public DepartamentController(DepartamentServices departamentServices) {
         this.departamentServices = departamentServices;
     }
 
+    // This method is used to create a department
     @PostMapping("/createDepartment")
     public ResponseEntity createDepartament(@RequestBody Department department) {
         try{
@@ -29,6 +31,7 @@ public class DepartamentController {
         }
     }
 
+    // This method is used to get a department
     @GetMapping("/getDepartment/{id}")
     public ResponseEntity getDepartament(@PathVariable("id") Integer id) {
         try{
@@ -39,6 +42,7 @@ public class DepartamentController {
         }
     }
 
+    // This method is used to delete a department
     @DeleteMapping("/deleteDepartament")
     public ResponseEntity deleteDepartament(Integer id) {
         try{
