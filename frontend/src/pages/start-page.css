@@ -1,3 +1,11 @@
+.background {
+  height: 100vh;
+  background-image: url("/assets/Background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .start-main-page {
   display: flex;
   justify-content: space-around;
@@ -22,47 +30,17 @@
   flex-direction: column;
   justify-content: space-around;
   height: 60%;
+
 }
 
-h1,
-h2,
-h3,
-h4 {
+
+
+.start-title {
+  font-size: 60px;
   color: white;
 }
-h1 {
-  font-size: 60px;
-}
-h2 {
+.start-subtitle {
   font-size: 30px;
-}
-h4 {
-  font-size: 25px;
+  color: white;
 }
 
-.start-btn {
-  padding: 12.5px 30px;
-  border: 0;
-  width: 300px;
-  font-size: 20px;
-  border-radius: 100px;
-  background-color: #ffffff;
-  color: #ff0000;
-  font-weight: Bold;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
-
-.start-btn:hover {
-  background-color: #ffe600;
-  box-shadow: 0 0 20px #6fc5ff50;
-  transform: scale(1.1);
-}
-
-.start-btn:active {
-  background-color: #3d94cf;
-  transition: all 0.25s;
-  -webkit-transition: all 0.25s;
-  box-shadow: none;
-  transform: scale(0.98);
-}
