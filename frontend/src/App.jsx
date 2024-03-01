@@ -6,13 +6,14 @@ import StartPage from "./pages/start-page.jsx";
 import OrgRegisterPage from "./pages/org-register-page.jsx";
 import UserRegisterPage from "./pages/user-register-page.jsx";
 import SignInPage from "./pages/sign-in-page.jsx";
+import Dashboard from "./pages/dashboard.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {}
-        <Route exact path="/" element={<StartPage />} />
+        <Route exact path="/" element={<StartPage/>} />
 
         {}
         <Route path="/register" element={<OrgRegisterPage />} />
