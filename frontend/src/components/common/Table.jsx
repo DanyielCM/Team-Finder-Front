@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTable } from 'react-table';
+import "./Table.css";
 
-function Table({ columns, data, handleAdd, handleDelete, handleUpdate }) {
+
+function Table({ columns, data, handleRowClick, selectedRow }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -14,16 +16,15 @@ function Table({ columns, data, handleAdd, handleDelete, handleUpdate }) {
   });
 
   return (
-    <table {...getTableProps()} style={{ border: 'solid 1px blue', width: '100%' }}>
+    <table className="table-t" {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()} style={{ borderBottom: 'solid 1px red', background: 'aliceblue', padding: '8px' }}>
+              <th className="table-header" {...column.getHeaderProps()} >
                 {column.render('Header')}
               </th>
             ))}
-            <th style={{ borderBottom: 'solid 1px red', background: 'aliceblue', padding: '8px' }}>Options</th>
           </tr>
         ))}
       </thead>
@@ -31,17 +32,16 @@ function Table({ columns, data, handleAdd, handleDelete, handleUpdate }) {
         {rows.map((row) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()} style={{ borderBottom: 'solid 1px gray' }}>
+            <tr
+              className={`table-row${row.original === selectedRow ? ' selected' : ''}`}
+              {...row.getRowProps()}
+              onClick={() => handleRowClick(row)}
+            >
               {row.cells.map((cell) => (
-                <td {...cell.getCellProps()} style={{ padding: '8px', background: 'papayawhip' }}>
+                <td {...cell.getCellProps()}>
                   {cell.render('Cell')}
                 </td>
               ))}
-              <td style={{ padding: '8px', background: 'papayawhip' }}>
-                <button onClick={() => handleAdd(row)}>Add</button>
-                <button onClick={() => handleDelete(row)}>Delete</button>
-                <button onClick={() => handleUpdate(row)}>Update</button>
-              </td>
             </tr>
           );
         })}
