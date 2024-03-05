@@ -8,7 +8,7 @@ import React, { useState } from "react";
 export default function OrgRegisterPage() {
 
   const fields = [
-    { name: 'userName', label: 'Name', type: 'text', placeholder: 'Name(name of individual)' },
+    { name: 'userName', label: 'Name', type: 'text', placeholder: 'Username (organization username)' },
     { name: 'email', label: 'Email', type: 'email', placeholder: 'Email' },
     { name: 'password', label: 'Password', type: 'password', placeholder: 'Password' },
     { name: 'organizationName', label: 'orgName', type: 'text', placeholder: 'Name of organisation' },
@@ -23,7 +23,7 @@ export default function OrgRegisterPage() {
 
 
     try {
-        const response = await fetch('http://localhost:8080/api/createOrganization', {
+        const response = await fetch('http://localhost:8080/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 package com.letsdoit.TeamFinder.Controllers;
 
 import com.letsdoit.TeamFinder.domain.Organization;
+import com.letsdoit.TeamFinder.repositories.OrganizationRepository;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +18,20 @@ public class OrganizationController {
     private final OrganizationService organizationService;
 
     @Autowired
+    private OrganizationRepository organizationRepository;
+
+    @GetMapping("/employeelink")
+    public String employeelink(@RequestParam String userName) {
+        return organizationRepository.findByuserName(userName.toLowerCase()).get().getEmployeeRegisterURL();
+    }
+
+
+    @Autowired
     public OrganizationController(OrganizationService organizationService) {
         this.organizationService = organizationService;
     }
     // This method is used to create an organization
+
     @PostMapping("/createOrganization")
     public ResponseEntity createOrganization(@RequestBody Organization organization) {
         try{
@@ -32,6 +43,9 @@ public class OrganizationController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create resource");
         }
     }
+
+
+
 
     // This method is used to get an organization
     @GetMapping("/getOrganization/{organizationId}")
