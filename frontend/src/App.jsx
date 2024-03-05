@@ -7,6 +7,7 @@ import OrgRegisterPage from "./pages/org-register-page.jsx";
 import UserRegisterPage from "./pages/user-register-page.jsx";
 import SignInPage from "./pages/sign-in-page.jsx";
 import Dashboard from "./pages/dashboard.jsx";
+import SignInUserPage from "./pages/sign-in-user-page.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<OrgRegisterPage />} />
         <Route path="/register-user" element={<UserRegisterPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-in-user" element={<SignInUserPage />} />
       </Routes>
     </BrowserRouter>
   );
