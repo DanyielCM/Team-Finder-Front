@@ -1,9 +1,17 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../hooks/AuthProvider";
 import AuthService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+
+  const navigateTo = useNavigate();
   const currentUser = AuthService.getCurrentUser();
+
+  const handleLogout = () => {
+    AuthService.logout();
+    navigateTo('/login'); 
+  };
   
   return (
     /*<div className="container">
@@ -23,7 +31,7 @@ const Dashboard = () => {
        
       </p>
       </header>
-      <button onClick={() => AuthService.logout()}>Logout</button>
+      <button onClick={() => handleLogout()}>Logout</button>
     </div>
 
 
