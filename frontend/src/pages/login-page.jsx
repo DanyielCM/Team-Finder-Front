@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./login-page.css";
 import Navbar from "../components/start-page-navbar.jsx";
-import Form from "../components/common/Form.jsx";
+import Form from "../components/common/form.jsx";
 import "./login-page.css";
 import { useAuth } from "../hooks/AuthProvider";
-
+import AuthService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 export default function SignInUserPage() {
+  const navigate = useNavigate();
+
   const fields = [
     {
       name: "username",
@@ -22,14 +25,24 @@ export default function SignInUserPage() {
     },
   ];
 
-  const auth = useAuth();
-
   const handleSubmit = (formData) => {
+    navigate("/dashboard");
     if (formData.username !== "" && formData.password !== "") {
-      auth.loginAction(formData);
-      return;
+      AuthService.login(formData)
+        .then((response) => {
+          if (response.success) {
+            console.log("Login successful:", response.data);
+            navigate("/dashboard");
+          } else {
+            console.error("Login failed:", response.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Fetch operation failed:", error);
+        });
+    } else {
+      alert("Please enter a valid email and password");
     }
-    alert("please provide a valid input");
   };
 
   return (

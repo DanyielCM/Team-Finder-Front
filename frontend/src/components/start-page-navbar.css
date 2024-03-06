@@ -13,3 +13,8 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.logo{
+  color: white;
+  text-decoration: none;
+}

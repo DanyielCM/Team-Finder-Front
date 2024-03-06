@@ -1,8 +1,8 @@
 import "./start-page.css";
 
 import { useNavigate } from "react-router-dom";
-import Button from "../components/common/Button.jsx";
-import Form from "../components/common/Form.jsx";
+import Button from "../components/common/button.jsx";
+import Form from "../components/common/form.jsx";
 
 import Navbar from "../components/start-page-navbar.jsx";
 

@@ -8,7 +8,7 @@ import PrivateRoute from "./router/route";
 import StartPage from "./pages/start-page.jsx";
 import OrgRegisterPage from "./pages/org-register-page.jsx";
 import UserRegisterPage from "./pages/user-register-page.jsx";
-import SignInPage from "./pages/sign-in-page.jsx";
+
 import Dashboard from "./pages/dashboard.jsx";
 import SignInUserPage from "./pages/login-page.jsx";
 
@@ -24,10 +24,8 @@ function App() {
             {}
             <Route path="/login" element={<SignInUserPage />} />
             <Route path="/register" element={<OrgRegisterPage />} />
-          
-            <Route element={<PrivateRoute />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Route>
+            <Route path="/dashboard" element={<Dashboard/>} />
+           
           
           </Routes>
         </AuthProvider>
@@ -53,4 +51,10 @@ return (
     </Routes>
   </BrowserRouter>
 );
+
+ <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+
+
 */
