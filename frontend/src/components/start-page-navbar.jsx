@@ -16,10 +16,7 @@ export default function Navbar() {
         </div>
         <nav className="nav-navbar">
           
-           <LoginDropdown>
-            </LoginDropdown>
-           
-            
+        <Button  onClick={() => navigate("/login")}>Login</Button>            
         </nav>
       </header>
     </>
