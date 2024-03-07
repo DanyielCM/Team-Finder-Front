@@ -20,12 +20,10 @@ export const DateTime = () => {
       };
 
     return(
-        <div>
-            {/* <p>{date.toLocaleTimeString()}</p> */}
-            <p>{date.toLocaleDateString("en-US", options)}</p>
+            <div>{date.toLocaleDateString("en-US", options)}</div>
 
-        </div>
     )
 }
 
 export default DateTime
+{/* <p>{date.toLocaleTimeString()}</p> */}

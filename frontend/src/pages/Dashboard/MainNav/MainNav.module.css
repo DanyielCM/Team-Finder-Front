@@ -23,9 +23,6 @@
 
 .list {
   list-style-type: none;
-  position: absolute;
-  top: 4vw;
-  left: 2vw;
   padding: 0;
 }
 
@@ -36,4 +33,5 @@
 
 .icons {
   margin-right: 2vw;
+  width: 1.4vw;
 }
