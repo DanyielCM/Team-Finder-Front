@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
-import Table from "../components/common/Table.jsx";
+import Table from "../../components/common/Table.jsx";
 
 export default function Dashboard() {
   const columns = [

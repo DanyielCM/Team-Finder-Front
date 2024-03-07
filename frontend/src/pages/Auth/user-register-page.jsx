@@ -1,16 +1,17 @@
-import "./sign-in-page.css";
-import Navbar from "../components/start-page-navbar.jsx";
+import "./user-register-page.css";
+import Navbar from "./start-page-navbar.jsx";
 
-import Form from '../components/common/Form.jsx';
+import Form from "../../components/common/Form.jsx";
 
 import React, { useState } from "react";
 
-export default function SignInPage() {
+export default function UserRegisterPage() {
 
 
   const fields = [
-    { name: 'username', label: 'Username', type: 'text', placeholder: 'Enter your username' },
-    { name: 'password', label: 'Password', type: 'password', placeholder: 'Enter your password' },
+    { name: 'name', label: 'Name', type: 'text', placeholder: 'Name' },
+    { name: 'email', label: 'Email', type: 'text', placeholder: 'Email' },
+    { name: 'password', label: 'Password', type: 'password', placeholder: 'Password' },
    
     
 
@@ -20,8 +21,6 @@ export default function SignInPage() {
 
     console.log('Form submitted with data:', formData);
   };
-
-
 
   return (
     <div className="background">
@@ -33,7 +32,7 @@ export default function SignInPage() {
         onSubmit={handleSubmit}
         fields={fields}
       />
-    </div>
+      </div>
     </div>
   );
 }
