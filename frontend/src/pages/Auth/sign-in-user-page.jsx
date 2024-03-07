@@ -1,7 +1,7 @@
 import "./sign-in-user-page.css";
-import Navbar from "../components/start-page-navbar.jsx";
+import Navbar from "./start-page-navbar.jsx";
 
-import Form from '../components/common/Form.jsx';
+import Form from '../../components/common/Form.jsx';
 
 import React, { useState } from "react";
 

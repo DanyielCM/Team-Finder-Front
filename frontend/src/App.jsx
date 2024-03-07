@@ -10,7 +10,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
-import SignInUserPage from "./pages/sign-in-user-page.jsx";
+import SignInUserPage from "./pages/Auth/sign-in-user-page.jsx";
 
 function App() {
   return (
