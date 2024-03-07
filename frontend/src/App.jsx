@@ -10,6 +10,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
+import SignInUserPage from "./pages/sign-in-user-page.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register-user" element={<UserRegisterPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/sign-in-user" element={<SignInUserPage />} />
       </Routes>
     </BrowserRouter>
   );

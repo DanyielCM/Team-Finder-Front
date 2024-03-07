@@ -1,11 +1,11 @@
-import "./sign-in-page.css";
-import Navbar from "./start-page-navbar.jsx";
+import "./sign-in-user-page.css";
+import Navbar from "../components/start-page-navbar.jsx";
 
-import Form from '../../components/common/Form.jsx';
+import Form from '../components/common/Form.jsx';
 
 import React, { useState } from "react";
 
-export default function SignInPage() {
+export default function SignInUserPage() {
 
 
   const fields = [
@@ -28,7 +28,7 @@ export default function SignInPage() {
       <Navbar></Navbar>
       <div className="register-main-page">
       <Form
-         title="Login as Organisation"
+         title="Login as Employee"
         subtitle="Please fill out the form below"
         onSubmit={handleSubmit}
         fields={fields}
