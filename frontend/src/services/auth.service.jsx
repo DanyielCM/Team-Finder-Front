@@ -26,14 +26,21 @@ const login = (data) => {
           console.log("Data:",data);
           // Store the token in local storage
           localStorage.setItem("jwt", JSON.stringify(data.jwt));
-          localStorage.setItem("user", JSON.stringify(data.employee.username));
+          localStorage.setItem("user", JSON.stringify(data.employee.employeeUserName));
           localStorage.setItem("authorities", JSON.stringify(getAuthorities(data.employee.authorities)));
         }
         return { success: true, data };
       });
-    } else {
-      throw new Error('Network response was not ok.');
-    }
+    } else if(response.status===401) {
+      alert('Invalid credentials!');
+      throw new Error('Invalid credentials');
+    }else if(response.status===404){
+      alert('No user found with this email');
+      throw new Error('No user found with this email');
+    } else  {
+    alert('Network error');
+    throw new Error('Cannot get data');
+  }
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);

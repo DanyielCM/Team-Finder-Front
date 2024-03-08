@@ -33,6 +33,9 @@ export default function SignInUserPage() {
             console.log("Login successful:", response.data);
             navigate("/dashboard");
           } else {
+            formData.employeeEmail='';
+            formData.employeePassword='';
+            window.location.reload(false);
             console.error("Login failed:", response.error);
           }
         })
