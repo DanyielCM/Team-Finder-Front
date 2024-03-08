@@ -8,7 +8,7 @@ import NavItem from "./NavItem";
 export default function MainNav() {
   return (
     <nav className={styles.navbar}>
-      <img src={LogoImage} alt="Team Finder Logo" className={styles.team_finder_logo}></img>
+    <a href="/"><img src={LogoImage} alt="Team Finder Logo" className={styles.team_finder_logo}></img></a>
       <ul className={styles.list}>
         {NAV_ITEMS.map((navItem) => (
           <NavItem key={navItem.title} {...navItem} />

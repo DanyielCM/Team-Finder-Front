@@ -17,7 +17,10 @@ const login = (data) => {
     body: JSON.stringify(data),
   })
   .then(response => {
-    if (response.ok) {
+    
+    console.log("Status code:",response.status)
+    if (response.status===200) {
+      
       return response.json().then(data => {
         if (data.jwt) {
           console.log("Data:",data);
@@ -58,13 +61,16 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
   };
 
-
+  const getJwt = () => {
+    return JSON.parse(localStorage.getItem("jwt"));
+  };
 
 const AuthService = {
   login,
   logout,
   getCurrentUser,
   getAuthority,
+  getJwt,
 };
 
 export default AuthService;

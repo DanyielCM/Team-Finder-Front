@@ -7,6 +7,7 @@ import UserRegisterPage from "./pages/Auth/user-register-page.jsx"
 import SignInPage from "./pages/Auth/login-page.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import PrivateRoute from "./router/route";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
@@ -22,7 +23,9 @@ function App() {
         <Route path="/register" element={<OrgRegisterPage />} />
         <Route path="/register-user" element={<UserRegisterPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
        
       </Routes>
     </BrowserRouter>

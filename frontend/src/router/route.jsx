@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../hooks/AuthProvider"
+
 
 import AuthService from '../services/auth.service.jsx';
 
@@ -8,9 +8,9 @@ import AuthService from '../services/auth.service.jsx';
 
 const PrivateRoute = () => {
 
-  const isAuthenticated = AuthService.getCurrentUser();
+  const isAuthenticated = AuthService.getJwt();
 
-  if (!isAuthenticated) return <Navigate to="/login" />;
+  if (!isAuthenticated) return <Navigate to="/sign-in" />;
   return <Outlet />;
 };
 
