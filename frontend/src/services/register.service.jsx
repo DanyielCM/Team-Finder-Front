@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8080/auth/";
+const API_URL = "http://localhost:8081/auth/";
 
 //TODO: employee link
 const register = (data) => {

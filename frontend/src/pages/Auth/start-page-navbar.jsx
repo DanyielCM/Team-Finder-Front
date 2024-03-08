@@ -1,8 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
-import LoginDropdown from "./common/login-dropdown.jsx";
-import Button from "./common/button.jsx";
+
+import Button from '../../components/common/button.jsx';;
 
 import "./start-page-navbar.css";
 
@@ -16,7 +16,7 @@ export default function Navbar() {
         </div>
         <nav className="nav-navbar">
           
-        <Button  onClick={() => navigate("/login")}>Login</Button>            
+        <Button  onClick={() => navigate("/sign-in")}>Login</Button>            
         </nav>
       </header>
     </>

@@ -1,0 +1,50 @@
+.banner {
+    position: absolute;
+    top: 5vw;
+    left: 20vw;
+    width: 60vw;
+    height: fit-content;
+    background-color: #a4ebd8;
+    border-radius: 20px;
+    border: 2px solid #4be1bd;
+    display: flex;
+    direction: row;
+  }
+  
+  .dashboard {
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    font-size: 1.8vw;
+    padding-top: 1vw;
+  }
+  
+  .date {
+    position: absolute;
+    top: 0;
+    right: 20vw;
+    font-size: 1.8vw;
+    font-weight: 400;
+    padding-top: 1vw;
+  }
+  
+  .title {
+    margin: 2vw 2vw 1.5vw;
+    font-size: 2.5vw;
+  }
+  
+  .motivational_quote_title {
+    margin: 0 2vw;
+    font-size: 1.4vw;
+    font-weight: 600;
+  }
+  
+  .motivational_quote {
+    margin: 0 2vw;
+    font-size: 1.4vw;
+  }
+  
+  .avatar {
+    width: 15vw;
+    margin: 0 2vw 0 10vw;
+  }

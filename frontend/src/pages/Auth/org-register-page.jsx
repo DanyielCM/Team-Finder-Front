@@ -1,11 +1,12 @@
 import "./org-register-page.css";
-import Navbar from "../components/start-page-navbar.jsx";
 
-import Form from "../components/common/form.jsx";
+import Navbar from "./start-page-navbar.jsx";
+
+import Form from "../../components/common/form.jsx";
 
 import React, { useState } from "react";
 
-import UserRegisterService from "../services/register.service";
+import UserRegisterService from "../../services/register.service";
 
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +52,7 @@ export default function OrgRegisterPage() {
       .then((isRegistered) => {
         if (isRegistered) {
           alert("Success");
-          navigateTo("/login");
+          navigateTo("/sign-in");
         } else {
           console.error("Registration failed.");
           alert("Something went wrong!");

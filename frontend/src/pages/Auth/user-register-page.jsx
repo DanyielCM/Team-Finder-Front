@@ -1,11 +1,11 @@
 import "./user-register-page.css";
-import Navbar from "../components/start-page-navbar.jsx";
+import Navbar from "./start-page-navbar.jsx";
 
-import Form from "../components/common/form.jsx";
+import Form from "../../components/common/form.jsx";
 
 import React, { useState } from "react";
 
-import UserRegisterService from "../services/auth.service";
+import UserRegisterService from "../../services/auth.service";
 
 import { useNavigate } from "react-router-dom";
 

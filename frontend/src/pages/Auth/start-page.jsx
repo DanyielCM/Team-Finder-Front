@@ -1,22 +1,12 @@
 import "./start-page.css";
-
+import Navbar from "./start-page-navbar.jsx";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/common/button.jsx";
-import Form from "../components/common/form.jsx";
-
-import Navbar from "../components/start-page-navbar.jsx";
+import Button from '../../components/common/button.jsx';;
+import React, { useState } from "react";
 
 export default function StartPage() {
   const navigate = useNavigate();
-  const fields = [
-    { name: 'username', label: 'Username', type: 'text', placeholder: 'Enter your username' },
-    { name: 'password', label: 'Password', type: 'password', placeholder: 'Enter your password' },
-  ];
 
-  const handleSubmit = (formData) => {
-
-    console.log('Form submitted with data:', formData);
-  };
   return (
     <div className="background">
       <Navbar></Navbar>

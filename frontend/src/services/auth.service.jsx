@@ -1,11 +1,14 @@
 import axios from "axios";
 
 
-const API_URL = "http://localhost:8080/auth/";
+const API_URL = "http://localhost:8081/auth/";
 
-
+function getAuthorities(array) {
+  return array.map(obj => obj.authority);
+}
 
 const login = (data) => {
+  
   return fetch(API_URL + "login", {
     method: 'POST',
     headers: {
@@ -17,8 +20,11 @@ const login = (data) => {
     if (response.ok) {
       return response.json().then(data => {
         if (data.jwt) {
+          console.log("Data:",data);
           // Store the token in local storage
-          localStorage.setItem("user", JSON.stringify(data.jwt));
+          localStorage.setItem("jwt", JSON.stringify(data.jwt));
+          localStorage.setItem("user", JSON.stringify(data.employee.username));
+          localStorage.setItem("authorities", JSON.stringify(getAuthorities(data.employee.authorities)));
         }
         return { success: true, data };
       });
@@ -37,17 +43,28 @@ const login = (data) => {
 const logout = () => {
   console.log("Logout");
   localStorage.removeItem("user");
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("authorities");
+};
+
+
+
+const getAuthority = () => {
+ 
+  return localStorage.getItem("authorities");
 };
 
 const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
-};
+    return JSON.parse(localStorage.getItem("user"));
+  };
+
+
 
 const AuthService = {
   login,
   logout,
   getCurrentUser,
+  getAuthority,
 };
 
 export default AuthService;
-

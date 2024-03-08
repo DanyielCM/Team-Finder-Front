@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./login-page.css";
-import Navbar from "../components/start-page-navbar.jsx";
-import Form from "../components/common/form.jsx";
+import Navbar from "./start-page-navbar.jsx";
+import Form from "../../components/common/form.jsx";
 import "./login-page.css";
-import { useAuth } from "../hooks/AuthProvider";
-import AuthService from "../services/auth.service";
+import AuthService from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
 export default function SignInUserPage() {
