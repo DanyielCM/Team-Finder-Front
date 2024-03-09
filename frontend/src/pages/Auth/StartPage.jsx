@@ -1,7 +1,7 @@
-import "./start-page.css";
-import Navbar from "./start-page-navbar.jsx";
+import "./StartPage.css";
+import Navbar from "./StartPageNavbar.jsx";
 import { useNavigate } from "react-router-dom";
-import Button from '../../components/common/button.jsx';;
+import Button from '../../components/common/Button.jsx';;
 import React, { useState } from "react";
 
 export default function StartPage() {

@@ -1,29 +1,25 @@
-import "./org-register-page.css";
+import "./UserRegisterPage.css";
+import Navbar from "./StartPageNavbar.jsx";
 
-import Navbar from "./start-page-navbar.jsx";
-
-import Form from "../../components/common/form.jsx";
+import Form from "../../components/common/Form.jsx";
 
 import React, { useState } from "react";
 
-import UserRegisterService from "../../services/register.service";
+import UserRegisterService from "../../services/auth.service";
 
 import { useNavigate } from "react-router-dom";
 
-export default function OrgRegisterPage() {
+export default function UserRegisterPage() {
   const navigateTo = useNavigate();
 
   const fields = [
-    {
-      name: "employeeUserName",
-      label: "Name",
-      type: "text",
-      placeholder: "Name(name of individual)",
-    },
+    
+    { name: "employeeName", label: "Name", type: "text", placeholder: "Name" },
+
     {
       name: "employeeEmail",
       label: "Email",
-      type: "email",
+      type: "text",
       placeholder: "Email",
     },
     {
@@ -32,30 +28,17 @@ export default function OrgRegisterPage() {
       type: "password",
       placeholder: "Password",
     },
-    {
-      name: "organizationName",
-      label: "Organisation Name",
-      type: "text",
-      placeholder: "Name of organisation",
-    },
-    {
-      name: "hqAddress",
-      label: "Headquarter Address",
-      type: "text",
-      placeholder: "Headquarter address",
-    },
   ];
 
   const handleSubmit = (formData) => {
-    console.log(formData);
     UserRegisterService.registerOrg(formData)
       .then((isRegistered) => {
         if (isRegistered) {
           alert("Success");
-          navigateTo("/sign-in");
+          navigateTo("/login");
         } else {
-          window.location.reload(false);
           console.error("Registration failed.");
+          alert("Something went wrong!");
         }
       })
       .catch((error) => {
@@ -69,7 +52,7 @@ export default function OrgRegisterPage() {
       <Navbar></Navbar>
       <div className="register-main-page">
         <Form
-          title="Organisation Register"
+          title="Employee Register"
           subtitle="Please fill out the form below for register"
           onSubmit={handleSubmit}
           fields={fields}

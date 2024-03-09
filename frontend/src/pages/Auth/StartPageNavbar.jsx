@@ -2,9 +2,9 @@ import { Outlet, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 
-import Button from '../../components/common/button.jsx';;
+import Button from '../../components/common/Button.jsx';;
 
-import "./start-page-navbar.css";
+import "./StartPageNavbar.css";
 
 export default function Navbar() {
   const navigate = useNavigate();

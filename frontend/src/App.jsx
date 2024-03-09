@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import StartPage from "./pages/Auth/start-page.jsx";
-import OrgRegisterPage from "./pages/Auth/org-register-page.jsx";
-import UserRegisterPage from "./pages/Auth/user-register-page.jsx"
-import SignInPage from "./pages/Auth/login-page.jsx";
+import StartPage from "./pages/Auth/StartPage.jsx";
+import OrgRegisterPage from "./pages/Auth/OrgRegisterPage.jsx";
+import UserRegisterPage from "./pages/Auth/UserRegisterPage.jsx"
+import SignInPage from "./pages/Auth/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import PrivateRoute from "./router/route";
+import PrivateRoute from "./router/Route";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);

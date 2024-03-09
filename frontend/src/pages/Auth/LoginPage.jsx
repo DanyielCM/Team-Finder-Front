@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./login-page.css";
-import Navbar from "./start-page-navbar.jsx";
-import Form from "../../components/common/form.jsx";
-import "./login-page.css";
+import Navbar from "./StartPageNavbar.jsx";
+import Form from "../../components/common/Form.jsx";
+import "./LoginPage.css";
 import AuthService from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
