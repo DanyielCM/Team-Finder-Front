@@ -26,4 +26,6 @@ export const NAV_ITEMS = [
     icon:  envelope ,
     title: "Inbox",
   },
+
 ];
+

@@ -5,13 +5,28 @@ import SecondaryNav from "./SecondaryNav/SecondaryNav.jsx";
 import Banner from "./Banner/Banner.jsx";
 
 
+import AuthService from "../../services/auth.service";
+import { useNavigate } from "react-router-dom";
+
+
 export default function Dashboard() {
+
+
+
+
+
     return (
         <div className={styles.background}>
             <MainNav></MainNav>
             <SecondaryNav></SecondaryNav>
             <Banner></Banner>
+
+
         </div>
+
+        
+
+
     )
 }
             {/* 

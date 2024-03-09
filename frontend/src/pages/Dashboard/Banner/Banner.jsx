@@ -1,7 +1,15 @@
 import styles from "./Banner.module.css";
 import DateTime from "../../../components/common/DateTime";
 
+import AuthService from "../../../services/auth.service";
+
 export default function Banner() {
+
+
+  const currentUser = AuthService.getCurrentUser();
+
+
+
   return (
     <>
       <div className={styles.dashboard}>Dashboard</div>
@@ -10,7 +18,9 @@ export default function Banner() {
       </div>
       <div className={styles.banner}>
         <div>
-          <h1 className={styles.title}>Welcome back Jackson!</h1>
+
+          <h1 className={styles.title}>Welcome back {currentUser}</h1>
+
 
           <p className={styles.motivational_quote_title}>
             Today's motivational quote:
@@ -26,4 +36,7 @@ export default function Banner() {
       </div>
     </>
   );
+
 }
+
+
