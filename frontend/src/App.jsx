@@ -7,7 +7,7 @@ import UserRegisterPage from "./pages/Auth/UserRegisterPage.jsx"
 import SignInPage from "./pages/Auth/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import PrivateRoute from "./router/Route";
+import PrivateRoute from "./router/Route.jsx";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
