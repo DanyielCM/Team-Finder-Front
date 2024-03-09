@@ -1,0 +1,15 @@
+.nav-logo-container {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.nav-header {
+  top: 0;
+  left: 0;
+  width: 100;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
