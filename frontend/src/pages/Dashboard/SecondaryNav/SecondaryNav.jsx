@@ -30,10 +30,11 @@ export default function SecondaryNav() {
       <div className={styles.icons}>
         <FontAwesomeIcon icon="fa-solid fa-bell" className={styles.icon_left} />
 
-        
-        <FontAwesomeIcon icon="fa-solid fa-gear" className={styles.icon_right}/>
+        <div className={styles.icon_right}>
+        <FontAwesomeIcon icon="fa-solid fa-gear" />
         <button onClick={() => handleLogout()} style={{color: "red"}} ><FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" className={styles.icon_right}/></button>
-        
+        </div>
+
       </div>
       <User imageSrc="../../../../assets/Profile.png" name={currentUser} role={JSON.parse(authorities)}/>
     </div>

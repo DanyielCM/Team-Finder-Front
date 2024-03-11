@@ -28,6 +28,10 @@ const login = (data) => {
           localStorage.setItem("jwt", JSON.stringify(data.jwt));
           localStorage.setItem("user", JSON.stringify(data.employee.employeeUserName));
           localStorage.setItem("authorities", JSON.stringify(getAuthorities(data.employee.authorities)));
+         localStorage.setItem("orgname", JSON.stringify(data.employee.organization.organizationName));
+         localStorage.setItem("employeeurl", JSON.stringify(data.employee.organization.employeeRegisterURL));
+          
+           localStorage.setItem("orgid", JSON.stringify(data.employee.organization.organizationId));
         }
         return { success: true, data };
       });
@@ -71,6 +75,15 @@ const getCurrentUser = () => {
   const getJwt = () => {
     return JSON.parse(localStorage.getItem("jwt"));
   };
+  const getOrgId = () => {
+    return JSON.parse(localStorage.getItem("orgid"));
+  };
+
+  const getOrgName=()=>{
+    return JSON.parse(localStorage.getItem("orgname"));
+  };
+
+ 
 
 const AuthService = {
   login,
@@ -78,6 +91,9 @@ const AuthService = {
   getCurrentUser,
   getAuthority,
   getJwt,
+  getOrgName,
+  getOrgId,
+ // getEmpoyeeURL,
 };
 
 export default AuthService;

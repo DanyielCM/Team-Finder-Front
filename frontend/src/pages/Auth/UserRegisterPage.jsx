@@ -8,9 +8,16 @@ import React, { useState } from "react";
 import UserRegisterService from "../../services/auth.service";
 
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 export default function UserRegisterPage() {
   const navigateTo = useNavigate();
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id');
+  const organisation = searchParams.get('organisation');
+  
 
   const fields = [
     
@@ -31,14 +38,15 @@ export default function UserRegisterPage() {
   ];
 
   const handleSubmit = (formData) => {
+    console.log(formData);
     UserRegisterService.registerOrg(formData)
       .then((isRegistered) => {
         if (isRegistered) {
           alert("Success");
-          navigateTo("/login");
+          navigateTo("/sign-in");
         } else {
+          window.location.reload(false);
           console.error("Registration failed.");
-          alert("Something went wrong!");
         }
       })
       .catch((error) => {
@@ -50,9 +58,10 @@ export default function UserRegisterPage() {
   return (
     <div className="background">
       <Navbar></Navbar>
+    
       <div className="register-main-page">
         <Form
-          title="Employee Register"
+          title={"Welcome to "+organisation}
           subtitle="Please fill out the form below for register"
           onSubmit={handleSubmit}
           fields={fields}

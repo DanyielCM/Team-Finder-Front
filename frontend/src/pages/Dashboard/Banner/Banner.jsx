@@ -11,11 +11,14 @@ export default function Banner() {
 
 
   return (
-    <>
-      <div className={styles.dashboard}>Dashboard</div>
+    <> <div className={styles.date_container}>
+
+<div className={styles.dashboard}>Dashboard</div>
       <div className={styles.date}>
         <DateTime></DateTime>
       </div>
+    </div>
+    
       <div className={styles.banner}>
         <div>
 

@@ -1,9 +1,9 @@
 .banner {
 
-    position: absolute;
+  
     top: 5vw;
     left: 20vw;
-    width: 60vw;
+    width: 67.8vw;
     height: fit-content;
     background-color: #a4ebd8;
     border-radius: 20px;
@@ -13,7 +13,7 @@
   }
   
   .dashboard {
-    position: absolute;
+    
     top: 0;
     left: 20vw;
     font-size: 1.8vw;
@@ -21,7 +21,7 @@
   }
   
   .date {
-    position: absolute;
+    
     top: 0;
     right: 20vw;
     font-size: 1.8vw;
@@ -48,5 +48,11 @@
   .avatar {
     width: 15vw;
     margin: 0 2vw 0 10vw;
+  }
+
+  .date_container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8vw;
   }
 

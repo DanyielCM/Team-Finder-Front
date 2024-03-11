@@ -12,7 +12,7 @@ export const NAV_ITEMS = [
   },
   {
     icon:  user ,
-    title: "Profile",
+    title: "People",
   },
   {
     icon:  folder ,
@@ -20,7 +20,7 @@ export const NAV_ITEMS = [
   },
   {
     icon:  users ,
-    title: "Department",
+    title: "Departments",
   },
   {
     icon:  envelope ,
