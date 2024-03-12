@@ -12,20 +12,22 @@ export default function Dashboard() {
   const [isDepModalOpen, setIsDepModalOpen] = useState(false); 
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(false); 
   const [inputValue, setInputValue] = useState("");
+  const [departmentIdToUpdate, setDepartmentIdToUpdate] = useState(null); 
 
   const orgId = AuthService.getOrgId();
   const orgName = AuthService.getOrgName();
 
   const [data, setData] = useState([
-    { id: 1, depName: "Backend", projects: 30 },
+    { id: 1, depName: "Backend", depManager:"Boicu David" },
     // ...More data
   ]);
   const [selectedNavItem, setSelectedNavItem] = useState("Departments");
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedManager, setSelectedManager] = useState("");
 
   const [peopleData, setPeopleData] = useState([
-    { id: 1, name: "John Doe", roles: ["Employee"] },
+    { id: 1, name: "John Doe", roles: ["Department Manager"] },
     { id: 2, name: "Jane Smith", roles: ["Employee"] },
     
   ]);
@@ -55,26 +57,56 @@ export default function Dashboard() {
     setIsRoleModalOpen(false); 
   };
 
-  const handleCreateDepartment = () => {
-    setIsDepModalOpen(true); 
-    setIsRoleModalOpen(false); 
-  };
-
-  const handleRowClick = (row) => {
+  const handlePeopleRowClick = (row) => {
     setSelectedRowData(row.original);
     if (selectedNavItem === "People") {
       setIsRoleModalOpen(true);
     }
   };
 
+
+
   const handleInputChange = (value) => {
     setInputValue(value);
   };
 
+  const handleDepartmentUpdateClick = (row) => {
+    setInputValue(row.original.depName);
+    setSelectedManager(row.original.depManager);
+    setDepartmentIdToUpdate(row.original.id);
+    setIsDepModalOpen(true);
+  };
+
+  const handleCreateDepartment = () => {
+    setInputValue("");
+    setSelectedManager("");
+    setIsDepModalOpen(true);
+    setDepartmentIdToUpdate(null);
+  };
+
   const handleModalConfirm = () => {
-    const newDepartment = { id: data.length + 1, depName: inputValue };
-    setData([...data, newDepartment]);
+    const updatedData = [...data];
+    if (departmentIdToUpdate !== null) {
+      const departmentIndex = updatedData.findIndex(
+        (department) => department.id === departmentIdToUpdate
+      );
+      updatedData[departmentIndex] = {
+        ...updatedData[departmentIndex],
+        depName: inputValue,
+        depManager: selectedManager,
+      };
+    } else {
+      const newDepartment = {
+        id: data.length + 1,
+        depName: inputValue,
+        depManager: selectedManager,
+      };
+      updatedData.push(newDepartment);
+    }
+    setData(updatedData);
     setIsDepModalOpen(false);
+    setInputValue("");
+    setSelectedManager("");
   };
 
   const columnsDepartments = [
@@ -85,6 +117,10 @@ export default function Dashboard() {
     {
       Header: "Department Name",
       accessor: "depName",
+    },
+    {
+      Header: "Department Manager",
+      accessor: "depManager",
     },
     
   ];
@@ -124,7 +160,13 @@ export default function Dashboard() {
   };
 
   const handleDelete = (row) => {
-    console.log("Delete operation for row:", row.original);
+    if (selectedNavItem === "Departments") {
+      // Filter out the deleted department from the data state
+      setData(data.filter(department => department.id !== row.original.id));
+    } else if (selectedNavItem === "People") {
+      // Filter out the deleted person from the peopleData state
+      setPeopleData(peopleData.filter(person => person.id !== row.original.id));
+    }
   };
 
   const handleUpdate = (row) => {
@@ -160,8 +202,10 @@ export default function Dashboard() {
               data={data}
               handleAdd={handleAdd}
               handleDelete={handleDelete}
-              handleUpdate={handleUpdate}
-              handleRowClick={handleRowClick}
+              handleUpdate={handleDepartmentUpdateClick}
+             // handleRowClick={handleDepartmentRowClick} 
+              handleCreateDepartment={handleCreateDepartment}
+              
               showAddButton={true}
             />
           </div>
@@ -171,13 +215,12 @@ export default function Dashboard() {
           <div>
           <h2>{selectedNavItem}</h2>
           <DashTable
-            title="People"
             columns={columnsPeople}
             data={peopleData}
             handleAdd={handleAdd}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
-            handleRowClick={handleRowClick} 
+            handleRowClick={handlePeopleRowClick} 
             showAddButton={true}
           />
           </div>
@@ -185,12 +228,19 @@ export default function Dashboard() {
         <DepartmentModal
           isOpen={isDepModalOpen}
           setIsOpen={setIsDepModalOpen}
-          title="Create a new department"
+          title={
+            departmentIdToUpdate !== null
+              ? "Update Department"
+              : "Create a new department"
+          }
           inputLabel="Name of department"
           inputValue={inputValue}
-          onInputChange={handleInputChange}
+          onInputChange={setInputValue}
           onConfirm={handleModalConfirm}
           onCancel={() => setIsDepModalOpen(false)}
+          peopleData={peopleData}
+          selectedManager={selectedManager}
+          setSelectedManager={setSelectedManager}
         />
         <AssignRoleModal
           isOpen={isRoleModalOpen}

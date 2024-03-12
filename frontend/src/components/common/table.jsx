@@ -10,8 +10,8 @@ function Table({
   handleUpdate,
   handleRowClick,
   showAddButton ,
-  showUpdateButton,
-  showDeleteButton ,
+  showUpdateButton=true,
+  showDeleteButton=true,
 }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
@@ -39,8 +39,7 @@ function Table({
           return (
             <tr
               className={styles.table_row}
-              {...row.getRowProps()}
-              onClick={() => handleRowClick(row)} // Attach onClick event handler to invoke handleRowClick
+              {...row.getRowProps()} 
             >
               {row.cells.map((cell) => (
                 <td className={styles.table_body} {...cell.getCellProps()}>
