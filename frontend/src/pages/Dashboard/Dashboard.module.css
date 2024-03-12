@@ -1,7 +1,23 @@
 .background {
+    display: flex;
     height: 100vh;
-    background-color: #EFEFEF;
     color: #0A1D56;
   }
+.dashboardcc{
+  
+ 
+  padding-left: 1vw;
+  padding-right: 1vW;
+}
+
+.tableheader{
+ 
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
 
   
+
