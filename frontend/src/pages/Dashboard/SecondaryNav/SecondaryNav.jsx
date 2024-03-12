@@ -10,7 +10,8 @@ export default function SecondaryNav() {
         <FontAwesomeIcon icon="fa-solid fa-gear" className={styles.icon_right}/>
         <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" className={styles.icon_right}/>
       </div>
-      <User imageSrc="../../../../assets/Profile.png" name="Jackson Cullen fdfdsfdsfds" role="Organization Admin"/>
+      <User imageSrc="../../../../assets/Profile.png" name="Jackson Cullen" role="Organization Admin"/>
+      <Panel/>
     </div>
   );
 }

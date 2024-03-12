@@ -12,7 +12,7 @@
 
 .team_finder_logo {
   width: 11vw;
-  margin: 2vw;
+  margin: 2vw 2vw 0;
 }
 
 .org_logo {
@@ -28,10 +28,10 @@
 
 .list_item {
   margin: 2.5vw 0;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
 }
 
 .icons {
   margin-right: 2vw;
-  width: 1.4vw;
+  width: 1.2vw;
 }
