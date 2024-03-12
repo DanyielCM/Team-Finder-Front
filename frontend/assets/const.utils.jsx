@@ -5,7 +5,7 @@ const folder = <FontAwesomeIcon icon="fa-solid fa-folder-open" />;
 const users = <FontAwesomeIcon icon="fa-solid fa-users" />;
 const envelope = <FontAwesomeIcon icon="fa-solid fa-envelope" />;
 
-export const NAV_ITEMS = [
+export const MAIN_NAV_ITEMS = [
   {
     icon:  house ,
     title: "Dashboard",
@@ -29,3 +29,40 @@ export const NAV_ITEMS = [
 
 ];
 
+export const SECONDARY_NAV_ITEMS_ADMIN = [
+  {
+    icon:  house ,
+    title: "Administrative roles",
+    description: "Assign administrative roles to other employees",
+  },
+  {
+    icon:  house ,
+    title: "Team roles",
+    description: "Manage team roles",
+  },  {
+    icon:  house ,
+    title: "Departments",
+    description: "Manage departments and department managers",
+  },
+];
+
+export const SECONDARY_NAV_ITEMS_PROJ = [
+  {
+    icon:  house ,
+    title: "Create new project",
+    description: "Create a project and assign the best team",
+  }
+]
+
+export const SECONDARY_NAV_ITEMS_DEP = [
+  {
+    icon:  house ,
+    title: "Manage department",
+    description: "Assign new members and manage department members",
+  },
+  {
+    icon:  house ,
+    title: "Skills Set",
+    description: "Manage available skills set",
+  }
+]

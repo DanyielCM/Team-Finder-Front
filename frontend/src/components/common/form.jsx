@@ -87,7 +87,7 @@ const Form = ({ title, subtitle, onSubmit, fields }) => {
           </button>
         </form>
       </div>
-      <div className="logo-container"><img className="logo-img" src="/assets/Main logo elements2.svg" alt="logo" /></div>
+      <div className="logo-container"><img className="logo-img" src="/assets/auth-logo-orange.png" alt="logo" /></div>
     </div>
   );
 };

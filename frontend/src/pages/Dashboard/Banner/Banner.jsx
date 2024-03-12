@@ -1,4 +1,5 @@
 import styles from "./Banner.module.css";
+import Avatar from "../../../../assets/avatar_male.png"
 import DateTime from "../../../components/common/DateTime";
 
 import AuthService from "../../../services/auth.service";
@@ -32,7 +33,7 @@ export default function Banner() {
         </div>
 
         <img
-          src="../../../../assets/Avatar-Male.png"
+          src={Avatar}
           alt="User avatar"
           className={styles.avatar}
         ></img>

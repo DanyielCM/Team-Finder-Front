@@ -1,7 +1,7 @@
 import "./user-register-page.css";
 import Navbar from "./start-page-navbar.jsx";
 
-import Form from "../../components/common/Form.jsx";
+import Form from "../../components/common/form.jsx";
 
 import React, { useState } from "react";
 

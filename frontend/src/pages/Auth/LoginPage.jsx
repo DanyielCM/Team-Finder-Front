@@ -6,7 +6,7 @@ import AuthService from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
 export default function SignInUserPage() {
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
 
   const fields = [
     {
@@ -30,7 +30,7 @@ export default function SignInUserPage() {
         .then((response) => {
           if (response.success) {
             console.log("Login successful:", response.data);
-            navigate("/dashboard");
+            navigateTo("/dashboard");
           } else {
             formData.employeeEmail='';
             formData.employeePassword='';

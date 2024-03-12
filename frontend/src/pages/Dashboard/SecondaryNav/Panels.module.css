@@ -1,0 +1,61 @@
+.panel {
+  height: fit-content;
+  width: 13vw;
+  text-align: left;
+}
+
+.panel_name {
+  margin: 0.5vw;
+  font-size: 1.2vw;
+  font-weight: 600;
+  display: flex;
+}
+
+.panel_name:hover {
+  cursor: pointer;
+}
+
+.icon_down {
+    margin: 0vw 0.5vw;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list_item {
+  margin: 0.5vw;
+  font-size: 0.8vw;
+  background-color: pink;
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.list_item:hover {
+  cursor: pointer;
+}
+
+.icon {
+  padding: 0.6vw;
+  margin: 0.5vw;
+  background-color: palevioletred;
+  border-radius: 10px;
+}
+
+.title,
+.description {
+  width: 8vw;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.description {
+  font-size: 0.6vw;
+}
