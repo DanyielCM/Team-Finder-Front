@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './DashTable.module.css';
 import { useTable } from "react-table";
-import Table from "../../components/common/Table.jsx";
+import Table from "../../components/common/table.jsx";
 
 export default function DashTable({ title, columns, data, handleAdd, handleDelete, handleUpdate, handleRowClick }) {
   return (

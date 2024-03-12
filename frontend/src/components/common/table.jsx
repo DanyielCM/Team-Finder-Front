@@ -1,6 +1,6 @@
 import React from "react";
 import { useTable } from "react-table";
-import styles from "./Table.module.css";
+import styles from "./table.module.css";
 
 function Table({
   columns,
