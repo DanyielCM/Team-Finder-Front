@@ -3,10 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 import { useNavigate } from "react-router-dom";
 //http://localhost:8080/auth/employee/register?orgId={id}
+
+
 const API_URL = "http://localhost:8081/auth/";
-
-
-
 //TODO: employee link
 const register = (data,id) => {
   console.log("Id:"+id);
@@ -15,7 +14,7 @@ const register = (data,id) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ data }),
+    body: JSON.stringify( data ),
   })
     .then((response) => {
       console.log("Register status:", response.status);

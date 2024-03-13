@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import PrivateRoute from "./router/Route.jsx";
 import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,faArrowRightFromBracket  } from "@fortawesome/free-solid-svg-icons";
+import { PrimeReactProvider, PrimeReactContext } from 'primereact/api'
 
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
 
@@ -17,7 +18,8 @@ library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,
 
 function App() {
   return (
-    <BrowserRouter>
+    <PrimeReactProvider>
+     <BrowserRouter>
       <Routes>
         {}
         <Route exact path="/" element={<StartPage />} />
@@ -33,6 +35,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+</PrimeReactProvider>
+   
   );
 }
 
