@@ -21,24 +21,33 @@ export default function SecondaryNav() {
     navigateTo("/sign-in");
   };
 
+  // {roles.some(str => str.includes("Organization Admin" && "Project Manager" && "Department Manager")) ? (
+  //   <div className={styles.navbar} style={{ borderRadius: 0 }}>
+  // ) : (
+  //   <div className={styles.navbar}>
+  // )}
+
   return (
-    <div className={styles.navbar}>
-      <div className={styles.icons_container}>
-        <FontAwesomeIcon icon="fa-solid fa-bell" className={styles.icon_left} />
-        <div>
-        <FontAwesomeIcon
-            onClick={() => handleLogout()}
-            icon="fa-solid fa-arrow-right-from-bracket"
-            className={styles.icon_right}
-          />
+      <div className={styles.navbar}>
+        <div className={styles.icons_container}>
           <FontAwesomeIcon
-            icon="fa-solid fa-gear"
-            className={styles.icon_right}
+            icon="fa-solid fa-bell"
+            className={styles.icon_left}
           />
+          <div>
+            <FontAwesomeIcon
+              onClick={() => handleLogout()}
+              icon="fa-solid fa-arrow-right-from-bracket"
+              className={styles.icon_right}
+            />
+            <FontAwesomeIcon
+              icon="fa-solid fa-gear"
+              className={styles.icon_right}
+            />
+          </div>
         </div>
+        <User imageSrc={ProfileImage} name={currentUser} roles={authorities} />
+        <Panels></Panels>
       </div>
-      <User imageSrc={ProfileImage} name={currentUser} role={authorities} />
-      <Panels></Panels>
-    </div>
   );
 }

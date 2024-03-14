@@ -8,12 +8,11 @@ import { SECONDARY_NAV_ITEMS_PROJ } from "../../../../assets/const.utils";
 import { SECONDARY_NAV_ITEMS_DEP } from "../../../../assets/const.utils";
 
 const authorities = AuthService.getAuthority();
-console.log(authorities);
 
 export default function Panels() {
   return (
     <>
-      {authorities == "OrganizationAdmin" && (
+      {authorities.some(str => str.includes("Organization Admin")) ? (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Admin Panel</span>
@@ -32,8 +31,8 @@ export default function Panels() {
             ))}
           </ul>
         </div>
-      )}
-      {authorities == "ProjectManager" && (
+      ) : undefined}
+      {authorities.some(str => str.includes("Project Manager")) ? (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Projects Panel</span>
@@ -52,8 +51,8 @@ export default function Panels() {
             ))}
           </ul>
         </div>
-      )}
-      {authorities == "DepartmentManager" && (
+      ) : undefined}
+      {authorities.some(str => str.includes("Department Manager")) ? (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Department Panel</span>
@@ -72,7 +71,7 @@ export default function Panels() {
             ))}
           </ul>
         </div>
-      )}
+      ) : undefined}
     </>
   );
 }

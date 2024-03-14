@@ -9,9 +9,9 @@ import SignInPage from "./pages/Auth/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import PrivateRoute from "./router/route.jsx";
-import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket, faSortDown  } from "@fortawesome/free-solid-svg-icons";
+import {faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket, faSortDown, faLock, faFileCirclePlus, faUsersGear, faChartColumn  } from "@fortawesome/free-solid-svg-icons";
 
-library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket, faSortDown);
+library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket, faSortDown, faLock, faFileCirclePlus, faUsersGear, faChartColumn);
 
 
 
