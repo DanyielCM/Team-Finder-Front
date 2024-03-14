@@ -61,6 +61,7 @@ const logout = () => {
   localStorage.removeItem("authorities");
   localStorage.removeItem("orgname");
   localStorage.removeItem("employeeurl");
+  localStorage.removeItem("lastOpen");
 };
 
 
