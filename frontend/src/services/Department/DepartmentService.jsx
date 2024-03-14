@@ -2,6 +2,8 @@ import Api from './DepartmentAPI.service.jsx'
 import AuthService from "../../services/auth.service";
 import React from 'react';
 
+
+
 function parseDepartmentData(jsonData) {
     return jsonData.map((department) => ({
       departmentId: department.departmentId,
@@ -14,6 +16,7 @@ function parseDepartmentData(jsonData) {
   const token=AuthService.getJwt();
 
 const createDepartment = (data) => {
+
   console.log(token);
   console.log("Data:", data);
   return fetch("http://localhost:8081/api/createDepartment", {
@@ -30,6 +33,7 @@ const createDepartment = (data) => {
         return true;
       } else {
         alert("Cannot create department");
+        return false
         throw new Error("Network response was not ok.", response.status);
       }
     })
@@ -46,7 +50,7 @@ const createDepartment = (data) => {
     return Api.getDepartments(orgId)
         .then(departments => {
             const parse = parseDepartmentData(departments);
-            console.log(parse);
+            
             return parse;
         })
         .catch(error => {
@@ -54,9 +58,17 @@ const createDepartment = (data) => {
         });
 }
 
-  async function updateDepartment(depId, newName) {
+  async function updateDepartmentName(depId, newName) {
     try {
       const departments = await Api.updateDepartmentName(depId, newName);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  }
+ 
+  async function updateDepartmentDescription(depId, newDesc) {
+    try {
+      const departments = await Api.updateDepartmentDescription(depId, newDesc);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
@@ -85,8 +97,9 @@ const createDepartment = (data) => {
     createDepartment,
     getDepartments,
     deleteDepartment,
-    updateDepartment,
+    updateDepartmentName,
     changeDepartmentManager,
+    updateDepartmentDescription,
   
   };
   export default DepartmentService;

@@ -59,13 +59,21 @@ const logout = () => {
   localStorage.removeItem("user");
   localStorage.removeItem("jwt");
   localStorage.removeItem("authorities");
+  localStorage.removeItem("orgname");
+  localStorage.removeItem("employeeurl");
 };
 
 
 
 const getAuthority = () => {
- 
-  return localStorage.getItem("authorities");
+  const authoritiesString = localStorage.getItem("authorities");
+  // Check if authoritiesString is truthy
+  if (authoritiesString) {
+    // Parse the stored string into an array
+    return JSON.parse(authoritiesString);
+  } else {
+    return []; // Return an empty array if no authorities are found
+  }
 };
 
 const getCurrentUser = () => {

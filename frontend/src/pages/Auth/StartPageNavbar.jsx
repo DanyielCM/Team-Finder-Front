@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 
-import Button from '../../components/common/Button.jsx';;
+import Button from '../../components/common/button.jsx';;
 
 import "./StartPageNavbar.css";
 

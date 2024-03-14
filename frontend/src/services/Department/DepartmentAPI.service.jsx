@@ -34,6 +34,7 @@ const createDepartment = (data) => {
 
 
 const getDepartments = async (orgId) => {
+
   const headers = {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
@@ -104,6 +105,31 @@ const updateDepartmentName = async (depId, newName) => {
   }
 };
 
+const updateDepartmentDescription = async (depId, newDesc) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: 'POST',
+    headers: headers
+  };
+  try {
+    const response = await fetch(`http://localhost:8081/api/updateDepartmentDescription?department=${depId}&newDescription=${newDesc}`, requestOptions);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    // If you don't need a response, you can simply return without parsing
+    return;
+  } catch (error) {
+    throw new Error(`Error updating department name: ${error.message}`);
+  }
+};
+
+
 const changeDepartmentManager = async (depId, newManagerId) => {
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -132,11 +158,12 @@ const changeDepartmentManager = async (depId, newManagerId) => {
 
 
 const DepartmentAPI = {
- // createDepartment,
+  createDepartment,
   getDepartments,
   deleteDepartment,
   updateDepartmentName,
   changeDepartmentManager,
+  updateDepartmentDescription,
 
 };
 export default DepartmentAPI;

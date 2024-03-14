@@ -1,53 +1,63 @@
 .navbar {
-    
-    width: 15vw;
-    height: fit-content;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    right: 0;
-    border-radius: 0 0 0 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .icons {
-    display: flex;
-    justify-content: space-between;
-    margin: 1vw;
-    font-size: 1.4vw;
-    width: 13vw;
-  }
-  
-  .icon_left {
-    float: left;
-  }
-  
-  .icon_right {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  
-  .user_info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1vw 2vw;
-  }
-  
-  .user_image {
-    border: 2px solid #0a1d56;
-    border-radius: 50%;
-    width: 9vw;
-  }
-  
-  .user_name {
-    margin: 0.5vw 0 0;
-    font-size: 1.4vw;
-  }
-  
-  .user_role {
-    margin: 0;
-    font-size: 1vw;
-  }
+  width: 15vw;
+  height: fit-content;
+  min-height: 19.3vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  right: 0;
+  border-radius: 0 0 0 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.icons_container {
+  margin: 1vw;
+  font-size: 1.4vw;
+  width: 13vw;
+}
+
+.icon_left {
+  float: left;
+}
+
+.icon_right {
+  float: right;
+  margin-left: 0.5vw;
+}
+
+.icon_left:hover {
+  color: #2a4bad;
+  cursor: pointer;
+}
+
+.icon_right:hover {
+  color: #2a4bad;
+  cursor: pointer;
+
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vw 2vw;
+}
+
+.user_image {
+  border: 2px solid #0a1d56;
+  border-radius: 50%;
+  width: 9vw;
+}
+
+.user_name {
+  margin: 0.5vw 0 0;
+  font-size: 1.4vw;
+}
+
+.user_role {
+  margin: 0;
+  font-size: 1vw;
+}

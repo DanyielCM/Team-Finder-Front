@@ -1,23 +1,16 @@
 .background {
-    display: flex;
-    height: 100vh;
-    color: #0A1D56;
-  }
-.dashboardcc{
-  
- 
-  padding-left: 1vw;
-  padding-right: 1vW;
+  display: flex;
+  height: 100vh;
+  color: #0A1D56;
 }
 
 .tableheader{
- 
-  display: flex;
-  justify-content: space-between;
+
+display: flex;
+justify-content: space-between;
 }
 
 
 
 
-  
 
