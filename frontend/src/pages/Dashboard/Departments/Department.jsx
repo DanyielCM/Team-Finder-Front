@@ -363,10 +363,11 @@ export default function Department() {
       >
         <div className={styles.form_container}>
           <div className={styles.item}>
-            <Dropdown
+          <Dropdown
               value={departmentManager}
               onChange={(e) => setDepartmentManager(e.value)}
               options={usersData}
+              optionLabel={"employeeUserName"}
               showClear
               placeholder="Select a Department Manager"
               className="w-full md:w-14rem"
