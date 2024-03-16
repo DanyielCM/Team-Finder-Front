@@ -2,10 +2,12 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom';
 
 import { useNavigate } from "react-router-dom";
-//http://localhost:8080/auth/employee/register?orgId={id}
 
 
-const API_URL = "http://localhost:8081/auth/";
+const PORT=8081;
+
+const API_URL = `http://localhost:${PORT}/auth/`;
+
 //TODO: employee link
 const register = (data,id) => {
   console.log("Id:"+id);
