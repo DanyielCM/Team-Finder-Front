@@ -1,7 +1,7 @@
 import axios from "axios";
 
-
-const API_URL = "http://localhost:8081/auth/";
+const PORT=8081
+const API_URL = "http://localhost:"+PORT+"/auth/";
 
 function getAuthorities(array) {
   return array.map(obj => obj.authority);
@@ -31,7 +31,6 @@ const login = (data) => {
          localStorage.setItem("orgname", JSON.stringify(data.employee.organization.organizationName));
          localStorage.setItem("employeeurl", JSON.stringify(data.employee.organization.employeeRegisterURL));
          localStorage.setItem("employeeid", JSON.stringify(data.employee.employeeId));
-          
            localStorage.setItem("orgid", JSON.stringify(data.employee.organization.organizationId));
         }
         return { success: true, data };
@@ -63,6 +62,7 @@ const logout = () => {
   localStorage.removeItem("orgname");
   localStorage.removeItem("employeeurl");
   localStorage.removeItem("lastOpen");
+  localStorage.removeItem("orgid");
 };
 
 

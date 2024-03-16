@@ -1,7 +1,7 @@
 
 
 import AuthService from "../../services/auth.service";
-
+const PORT=8081;
 
 const token=AuthService.getJwt();
 
@@ -18,7 +18,7 @@ const getSkillCategories = async (orgId) => {
     };
   
     try {
-        const response = await fetch(`http://localhost:8081/api/skills/getSkillCategories/${orgId}`, requestOptions);
+        const response = await fetch(`http://localhost:${PORT}/api/skills/getSkillCategories/${orgId}`, requestOptions);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -41,7 +41,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:8081/api/skills/addSkillCategory/${categoryName}/${depId}`,
+        `http://localhost:${PORT}/api/skills/addSkillCategory/${categoryName}/${depId}`,
         requestOptions
       );
   
@@ -69,7 +69,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:8081/api/skills/removeSkillCategory/${skillCatId}`,
+        `http://localhost:${PORT}/api/skills/removeSkillCategory/${skillCatId}`,
         requestOptions
       );
       if (!response.ok) {
@@ -93,7 +93,7 @@ const getSkillCategories = async (orgId) => {
       headers: headers
     };
     try {
-      const response = await fetch(`http://localhost:8081/api/skills/updateSkillCategoryName/${skillCatId}/${newName}`, requestOptions);
+      const response = await fetch(`http://localhost:${PORT}/api/skills/updateSkillCategoryName/${skillCatId}/${newName}`, requestOptions);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -120,7 +120,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:8081/api/skills/addSkillsToCategory/${skillName}/${skillDescription}/${employeeId}/${skillCategoryId}/${departmentId}`,
+        `http://localhost:${PORT}/api/skills/addSkillsToCategory/${skillName}/${skillDescription}/${employeeId}/${skillCategoryId}/${departmentId}`,
         requestOptions
       );
   
@@ -135,7 +135,7 @@ const getSkillCategories = async (orgId) => {
     }
   };
 
-  //http://localhost:8080/api/skills/getSkillsByDepartmentAndCategory/${departmentId}/${skillCategoryId}
+
   const getSkillsByDepartmentAndCategory = async (departmentId,skillCategoryId) => {
 
     const headers = {
@@ -149,7 +149,7 @@ const getSkillCategories = async (orgId) => {
     };
   
     try {
-        const response = await fetch(`http://localhost:8081/api/skills/getSkillsByDepartmentAndCategory/${departmentId}/${skillCategoryId}`, requestOptions);
+        const response = await fetch(`http://localhost:${PORT}/api/skills/getSkillsByDepartmentAndCategory/${departmentId}/${skillCategoryId}`, requestOptions);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -173,19 +173,19 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:8081/api/skills/removeSkill/${skillId}`,
+        `http://localhost:${PORT}/api/skills/removeSkill/${skillId}`,
         requestOptions
       );
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      // If you don't need a response, you can simply return without parsing
+    
       return;
     } catch (error) {
       throw new Error(`Error deleting role: ${error.message}`);
     }
   };
-//http://localhost:8080/api/skills/updateSkill/${skillId}/${newSkillName}/${newSkillDescription}
+
 
   const updateSkill = async (skillId, newSkillName,newSkillDescription) => {
     const headers = {
@@ -198,13 +198,13 @@ const getSkillCategories = async (orgId) => {
       headers: headers
     };
     try {
-      const response = await fetch(`http://localhost:8081/api/skills/updateSkill/${skillId}/${newSkillName}/${newSkillDescription}`, requestOptions);
+      const response = await fetch(`http://localhost:${PORT}/api/skills/updateSkill/${skillId}/${newSkillName}/${newSkillDescription}`, requestOptions);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       
-      // If you don't need a response, you can simply return without parsing
+  
       return;
     } catch (error) {
       throw new Error(`Error updating department name: ${error.message}`);

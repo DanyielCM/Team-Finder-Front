@@ -2,6 +2,9 @@ import Api from "./UserAPI.service.jsx";
 import AuthService from "../../services/auth.service";
 import React from "react";
 
+const PORT=8081;
+
+
 const token = AuthService.getJwt();
 
 const getUsers = async (orgId) => {
@@ -14,10 +17,10 @@ const getUsers = async (orgId) => {
     method: "GET",
     headers: headers,
   };
-  // localhost:8080/api/employee/getEmployees?orgId={id}
+
   try {
     const response = await fetch(
-      `http://localhost:8081/api/employee/getEmployees?orgId=${orgId}`,
+      `http://localhost:${PORT}/api/employee/getEmployees?orgId=${orgId}`,
       requestOptions
     );
     if (!response.ok) {
@@ -42,7 +45,7 @@ const getUsersByRoles = async (orgId, role) => {
   //http://localhost:8080/api/employee/getEmployeesByRole?orgId={orgId}&role={StringAuthority(DepartmentManager)}
   try {
     const response = await fetch(
-      `http://localhost:8081/api/employee/getEmployeesByRole?orgId=${orgId}&role=${role}`,
+      `http://localhost:${PORT}/api/employee/getEmployeesByRole?orgId=${orgId}&role=${role}`,
       requestOptions
     );
     if (!response.ok) {
@@ -70,7 +73,7 @@ const addUserRole = async (userId, role) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/employee/addRole/${userId}/${role}`,
+      `http://localhost:${PORT}/api/employee/addRole/${userId}/${role}`,
       requestOptions
     );
 
@@ -97,7 +100,7 @@ const getUserRoles = async (userId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/employee/getRole/${userId}`,
+      `http://localhost:${PORT}/api/employee/getRole/${userId}`,
       requestOptions
     );
     if (!response.ok) {
@@ -124,7 +127,7 @@ const deleteUserRole = async (userId, role) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/employee/removeRole/${userId}/${role}`,
+      `http://localhost:${PORT}/api/employee/removeRole/${userId}/${role}`,
       requestOptions
     );
     if (!response.ok) {
@@ -152,21 +155,21 @@ const getUnassignedUsers = async (orgId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/getUnassignedEmployees?orgId=${orgId}`,
+      `http://localhost:${PORT}/api/getUnassignedEmployees?orgId=${orgId}`,
       requestOptions
     );
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const data = await response.json(); // Wait for JSON data to be resolved
-    // console.log(data); // Now you can log the actual data
+    const data = await response.json(); 
+   
     return data;
   } catch (error) {
     throw new Error(`Error fetching departments: ${error.message}`);
   }
 };
 
-//http://localhost:8080/api/assignEmployeeToDepartment/{employeeId}/{depId}
+
 const assignUserToDepartment = async (userId, depId) => {
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -180,7 +183,7 @@ const assignUserToDepartment = async (userId, depId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/assignEmployeeToDepartment/${userId}/${depId}`,
+      `http://localhost:${PORT}/api/assignEmployeeToDepartment/${userId}/${depId}`,
       requestOptions
     );
 
@@ -188,13 +191,13 @@ const assignUserToDepartment = async (userId, depId) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    // If you don't need a response, you can simply return without parsing
+   
     return;
   } catch (error) {
     throw new Error(`Error assigning user to deaprtment: ${error.message}`);
   }
 };
-//http://localhost:8080/api/removeEmployeeFromDepartment/{employeeId}/{depId}
+
 
 const removeUserFromDepartment = async (userId, depId) => {
   const headers = {
@@ -209,19 +212,19 @@ const removeUserFromDepartment = async (userId, depId) => {
 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/removeEmployeeFromDepartment/${userId}/${depId}`,
+      `http://localhost:${PORT}/api/removeEmployeeFromDepartment/${userId}/${depId}`,
       requestOptions
     );
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    // If you don't need a response, you can simply return without parsing
+ 
     return;
   } catch (error) {
     throw new Error(`Error deleting role: ${error.message}`);
   }
 };
-//localhost:8080/api/getEmployeesFromDepartment/{departmentId}
+
 const getUsersFromDepartment = async (depId) => {
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -232,10 +235,10 @@ const getUsersFromDepartment = async (depId) => {
     method: "GET",
     headers: headers,
   };
-  // localhost:8080/api/getEmployeesFromDepartment/{departmentId}
+ 
   try {
     const response = await fetch(
-      `http://localhost:8081/api/getEmployeesFromDepartment/${depId}`,
+      `http://localhost:${PORT}/api/getEmployeesFromDepartment/${depId}`,
       requestOptions
     );
     if (!response.ok) {

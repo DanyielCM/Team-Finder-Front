@@ -7,6 +7,10 @@ export default function Banner() {
   const currentUser = AuthService.getCurrentUser();
   const orgId = AuthService.getOrgId();
   const orgName = AuthService.getOrgName();
+  const authorities = AuthService.getAuthority();
+
+  const isAdmin =authorities.includes("OrganizationAdmin");
+  
 
   return (
     <>
@@ -14,9 +18,11 @@ export default function Banner() {
       <div className={styles.date_container}>
         <div className={styles.dashboard}>
           {" "}
-          <a href={"/register-user?id=" + orgId + "&organisation=" + orgName}>
-            Get Employee URL
-          </a>
+          {isAdmin && (
+            <a href={"/register-user?id=" + orgId + "&organisation=" + orgName} target="_blank">
+              Get Employee URL
+            </a>
+          )}
         </div>
         <div className={styles.date}>
           <DateTime></DateTime>

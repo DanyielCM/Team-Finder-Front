@@ -1,4 +1,5 @@
-//http://localhost:8081/api/createDepartment'
+
+const PORT=8081;
 
 import AuthService from "../../services/auth.service";
 import axios from 'axios';
@@ -8,7 +9,7 @@ const token=AuthService.getJwt();
 const createDepartment = (data) => {
   console.log(token);
   console.log("Data:", data);
-  return fetch("http://localhost:8081/api/createDepartment", {
+  return fetch("http://localhost:${PORT}/api/createDepartment", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -46,7 +47,7 @@ const getDepartments = async (orgId) => {
   };
 
   try {
-      const response = await fetch(`http://localhost:8081/api/getDepartments/${orgId}`, requestOptions);
+      const response = await fetch(`http://localhost:${PORT}/api/getDepartments/${orgId}`, requestOptions);
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -68,7 +69,7 @@ const deleteDepartment = async (id) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:8081/api/deleteDepartment/${id}`, requestOptions);
+    const response = await fetch(`http://localhost:${PORT}/api/deleteDepartment/${id}`, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -92,7 +93,7 @@ const updateDepartmentName = async (depId, newName) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:8081/api/updateDepartmentName?department=${depId}&newName=${newName}`, requestOptions);
+    const response = await fetch(`http://localhost:${PORT}/api/updateDepartmentName?department=${depId}&newName=${newName}`, requestOptions);
     
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -116,7 +117,7 @@ const updateDepartmentDescription = async (depId, newDesc) => {
     headers: headers
   };
   try {
-    const response = await fetch(`http://localhost:8081/api/updateDepartmentDescription?department=${depId}&newDescription=${newDesc}`, requestOptions);
+    const response = await fetch(`http://localhost:${PORT}/api/updateDepartmentDescription?department=${depId}&newDescription=${newDesc}`, requestOptions);
     
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -142,11 +143,11 @@ const changeDepartmentManager = async (depId, newManagerId) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:8081/api/changeDepartmentManager?department=${depId}&newManager=${newManagerId}`, requestOptions);
+    const response = await fetch(`http://localhost:${PORT}/api/changeDepartmentManager?department=${depId}&newManager=${newManagerId}`, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    // If you don't need a response, you can simply return without parsing
+  
     return;
   } catch (error) {
     throw new Error(`Error changing department manager: ${error.message}`);
