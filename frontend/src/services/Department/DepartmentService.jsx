@@ -49,13 +49,31 @@ const createDepartment = (data) => {
 
     return Api.getDepartments(orgId)
         .then(departments => {
-            const parse = parseDepartmentData(departments);
-            
-            return parse;
+      
+          const parse = parseDepartmentData(departments);
+        
+          return parse;
+           
         })
         .catch(error => {
             console.error("Error fetching data:", error.message);
         });
+}
+function getDepartmentByManager() {
+  const orgId = localStorage.getItem("orgid");
+
+  return Api.getDepartments(orgId)
+      .then(departments => {
+        
+
+          const filteredDepartments = departments.filter(dept => dept.departmentManager.employeeUserName===JSON.parse(localStorage.getItem('user')));
+          console.log("abc",localStorage.getItem('user'));
+          const parse = parseDepartmentData(filteredDepartments);
+          return parse;
+      })
+      .catch(error => {
+          console.error("Error fetching data:", error.message);
+      });
 }
 
   async function updateDepartmentName(depId, newName) {
@@ -100,6 +118,7 @@ const createDepartment = (data) => {
     updateDepartmentName,
     changeDepartmentManager,
     updateDepartmentDescription,
+    getDepartmentByManager,
   
   };
   export default DepartmentService;

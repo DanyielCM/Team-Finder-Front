@@ -137,11 +137,126 @@ const deleteUserRole = async (userId, role) => {
   }
 };
 
+
+
+const getUnassignedUsers = async (orgId) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+  };
+
+  try {
+    const response = await fetch(
+      `http://localhost:8081/api/getUnassignedEmployees?orgId=${orgId}`,
+      requestOptions
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json(); // Wait for JSON data to be resolved
+    // console.log(data); // Now you can log the actual data
+    return data;
+  } catch (error) {
+    throw new Error(`Error fetching departments: ${error.message}`);
+  }
+};
+
+//http://localhost:8080/api/assignEmployeeToDepartment/{employeeId}/{depId}
+const assignUserToDepartment = async (userId, depId) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: "POST",
+    headers: headers,
+  };
+
+  try {
+    const response = await fetch(
+      `http://localhost:8081/api/assignEmployeeToDepartment/${userId}/${depId}`,
+      requestOptions
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    // If you don't need a response, you can simply return without parsing
+    return;
+  } catch (error) {
+    throw new Error(`Error assigning user to deaprtment: ${error.message}`);
+  }
+};
+//http://localhost:8080/api/removeEmployeeFromDepartment/{employeeId}/{depId}
+
+const removeUserFromDepartment = async (userId, depId) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: "DELETE",
+    headers: headers,
+  };
+
+  try {
+    const response = await fetch(
+      `http://localhost:8081/api/removeEmployeeFromDepartment/${userId}/${depId}`,
+      requestOptions
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    // If you don't need a response, you can simply return without parsing
+    return;
+  } catch (error) {
+    throw new Error(`Error deleting role: ${error.message}`);
+  }
+};
+//localhost:8080/api/getEmployeesFromDepartment/{departmentId}
+const getUsersFromDepartment = async (depId) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+  };
+  // localhost:8080/api/getEmployeesFromDepartment/{departmentId}
+  try {
+    const response = await fetch(
+      `http://localhost:8081/api/getEmployeesFromDepartment/${depId}`,
+      requestOptions
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Error fetching departments: ${error.message}`);
+  }
+};
+
+
 const UserAPI = {
   getUsers,
   addUserRole,
   getUserRoles,
   deleteUserRole,
   getUsersByRoles,
+  getUnassignedUsers,
+  assignUserToDepartment,
+  removeUserFromDepartment,
+  getUsersFromDepartment,
 };
 export default UserAPI;

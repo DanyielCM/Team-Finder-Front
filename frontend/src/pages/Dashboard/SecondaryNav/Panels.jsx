@@ -99,7 +99,7 @@ export default function Panels({onPanelSelect}) {
               <Panel
                 key={navItem.title}
                 {...navItem}
-               
+                onClick={() => handleNavItemSelection(navItem.title)}
               />
             ))}
           </ul>

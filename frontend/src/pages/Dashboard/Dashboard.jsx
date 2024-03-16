@@ -7,6 +7,8 @@ import SecondaryNav from "./SecondaryNav/SecondaryNav.jsx";
 import Banner from "./Banner/Banner.jsx";
 import Department from "./Departments/Department.jsx";
 import AssignRole from "./AssignRole/AssignRole.jsx";
+import ManageDepartment from "./Departments/ManageDepartment.jsx";
+import ManageSkills from "./Skills/ManageSkills.jsx";
 
 export default function Dashboard() {
 
@@ -39,6 +41,8 @@ export default function Dashboard() {
         {selectedItem === "Dashboard" && <Banner />}
         {selectedItem === "Departments." && <Department />}
         {selectedItem === "Administrative roles" && <AssignRole />}
+        {selectedItem === "Manage department" && <ManageDepartment />}
+        {selectedItem === "Skills Set" && <ManageSkills />}
         </div>
         
         <SecondaryNav onSelectedItem={handlePanelItem}></SecondaryNav>

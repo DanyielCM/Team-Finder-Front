@@ -61,11 +61,55 @@ async function deleteUserRole(userId, role) {
   }
 }
 
+function getUnassignedUsers(orgId) {
+  return Api.getUnassignedUsers(orgId)
+    .then((unassignedUsers) => {
+      return unassignedUsers;
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error.message);
+    });
+}
+
+async function assignUserToDepartment(userId, depId) {
+  try {
+    const user = await Api.assignUserToDepartment(userId, depId);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  }
+}
+
+async function removeUserFromDepartment(userId, depId) {
+  try {
+    const user = await Api.removeUserFromDepartment(userId, depId);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  }
+}
+
+function getUsersFromDepartment(depId) {
+  
+
+  return Api.getUsersFromDepartment(depId)
+    .then((users) => {
+     
+      // console.log("Parsed users:", parse);
+      return users;
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error.message);
+    });
+}
+
 const UserService = {
   getUsers,
   addUserRole,
   getUserRoles,
   deleteUserRole,
   getUsersByRoles,
+  getUnassignedUsers,
+  assignUserToDepartment,
+  removeUserFromDepartment,
+  getUsersFromDepartment,
 };
 export default UserService;

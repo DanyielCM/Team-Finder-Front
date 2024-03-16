@@ -1,19 +1,17 @@
-import styles from "./Department.module.css";
-import AuthService from "../../../services/auth.service";
 import React, { useState, useEffect, useRef } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-import "primereact/resources/primereact.min.css";
 import { Button } from "primereact/button";
-import { classNames } from "primereact/utils";
 import { Dialog } from "primereact/dialog";
-import DepartmentService from "../../../services/Department/DepartmentService";
-import User from "../../../services/User/UserService";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+import { classNames } from "primereact/utils";
+import AuthService from "../../../services/auth.service";
+import DepartmentService from "../../../services/Department/DepartmentService";
+import User from "../../../services/User/UserService";
+import styles from "./Department.module.css";
 
 export default function Department() {
   const [visibleCreate, setVisibleCreate] = useState(false);
@@ -46,6 +44,7 @@ export default function Department() {
       authorities: "",
     },
   ]);
+  
   const collectDepartmentData = (name, description, depManager, orgId) => {
     return {
       departmentName: name,
@@ -55,70 +54,6 @@ export default function Department() {
     };
   };
 
-  const footerCreate = (
-    <div className={styles.footer_buttons}>
-      <Button
-        label="Cancel"
-        icon="pi pi-times"
-        onClick={() => setVisibleCreate(false)}
-        className="p-button-text"
-      />
-      <Button
-        label="Confirm"
-        icon="pi pi-check"
-        onClick={() => handleConfirmCreate()}
-        autoFocus
-      />
-    </div>
-  );
-  const footerUpdateName = (
-    <div className={styles.footer_buttons}>
-      <Button
-        label="Cancel"
-        icon="pi pi-times"
-        onClick={() => setVisibleUpdateName(false)}
-        className="p-button-text"
-      />
-      <Button
-        label="Confirm"
-        icon="pi pi-check"
-        onClick={() => handleConfirmUpdateName()}
-        autoFocus
-      />
-    </div>
-  );
-  const footerUpdateDesc = (
-    <div className={styles.footer_buttons}>
-      <Button
-        label="Cancel"
-        icon="pi pi-times"
-        onClick={() => setVisibleUpdateDesc(false)}
-        className="p-button-text"
-      />
-      <Button
-        label="Confirm"
-        icon="pi pi-check"
-        onClick={() => handleConfirmUpdateDesc()}
-        autoFocus
-      />
-    </div>
-  );
-  const footerUpdateManager = (
-    <div className={styles.footer_buttons}>
-      <Button
-        label="Cancel"
-        icon="pi pi-times"
-        onClick={() => setVisibleUpdateMananger(false)}
-        className="p-button-text"
-      />
-      <Button
-        label="Confirm"
-        icon="pi pi-check"
-        onClick={() => handleConfirmUpdateManager()}
-        autoFocus
-      />
-    </div>
-  );
   const handleConfirmCreate = () => {
     const confirm = DepartmentService.createDepartment(
       collectDepartmentData(
@@ -137,16 +72,19 @@ export default function Department() {
     fetchData();
     window.location.reload(false);
   };
+
   const handleConfirmUpdateName = () => {
     DepartmentService.updateDepartmentName(departmentId, departmentName);
     setVisibleUpdateName(false);
     window.location.reload(false);
   };
+
   const handleConfirmUpdateDesc = () => {
     DepartmentService.updateDepartmentDescription(departmentId, departmentDesc);
     setVisibleUpdateDesc(false);
     window.location.reload(false);
   };
+
   const handleConfirmUpdateManager = () => {
     DepartmentService.changeDepartmentManager(
       departmentId,
@@ -193,6 +131,7 @@ export default function Department() {
       />
     );
   };
+  
   const handleDelete = (rowData) => {
     setDepartmentManager(event.value);
     setDepartmentId(rowData.departmentId);
@@ -222,6 +161,74 @@ export default function Department() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const footerCreate = (
+    <div className={styles.footer_buttons}>
+      <Button
+        label="Cancel"
+        icon="pi pi-times"
+        onClick={() => setVisibleCreate(false)}
+        className="p-button-text"
+      />
+      <Button
+        label="Confirm"
+        icon="pi pi-check"
+        onClick={() => handleConfirmCreate()}
+        autoFocus
+      />
+    </div>
+  );
+  
+  const footerUpdateName = (
+    <div className={styles.footer_buttons}>
+      <Button
+        label="Cancel"
+        icon="pi pi-times"
+        onClick={() => setVisibleUpdateName(false)}
+        className="p-button-text"
+      />
+      <Button
+        label="Confirm"
+        icon="pi pi-check"
+        onClick={() => handleConfirmUpdateName()}
+        autoFocus
+      />
+    </div>
+  );
+  
+  const footerUpdateDesc = (
+    <div className={styles.footer_buttons}>
+      <Button
+        label="Cancel"
+        icon="pi pi-times"
+        onClick={() => setVisibleUpdateDesc(false)}
+        className="p-button-text"
+      />
+      <Button
+        label="Confirm"
+        icon="pi pi-check"
+        onClick={() => handleConfirmUpdateDesc()}
+        autoFocus
+      />
+    </div>
+  );
+  
+  const footerUpdateManager = (
+    <div className={styles.footer_buttons}>
+      <Button
+        label="Cancel"
+        icon="pi pi-times"
+        onClick={() => setVisibleUpdateMananger(false)}
+        className="p-button-text"
+      />
+      <Button
+        label="Confirm"
+        icon="pi pi-check"
+        onClick={() => handleConfirmUpdateManager()}
+        autoFocus
+      />
+    </div>
+  );
 
   return (
     <div className={styles.background}>

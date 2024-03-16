@@ -30,6 +30,7 @@ const login = (data) => {
           localStorage.setItem("authorities", JSON.stringify(getAuthorities(data.employee.authorities)));
          localStorage.setItem("orgname", JSON.stringify(data.employee.organization.organizationName));
          localStorage.setItem("employeeurl", JSON.stringify(data.employee.organization.employeeRegisterURL));
+         localStorage.setItem("employeeid", JSON.stringify(data.employee.employeeId));
           
            localStorage.setItem("orgid", JSON.stringify(data.employee.organization.organizationId));
         }
@@ -92,6 +93,10 @@ const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("orgname"));
   };
 
+  const getEmployeeId=()=>{
+    return JSON.parse(localStorage.getItem("employeeid"));
+  };
+
  
 
 const AuthService = {
@@ -102,6 +107,7 @@ const AuthService = {
   getJwt,
   getOrgName,
   getOrgId,
+  getEmployeeId,
  // getEmpoyeeURL,
 };
 
