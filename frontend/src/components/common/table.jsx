@@ -9,9 +9,7 @@ function Table({
   handleDelete,
   handleUpdate,
   handleRowClick,
-  showAddButton ,
-  showUpdateButton,
-  showDeleteButton ,
+  handleDepartmentUpdateClick, // Function to handle department update click
 }) {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
@@ -37,29 +35,18 @@ function Table({
         {rows.map((row) => {
           prepareRow(row);
           return (
-            <tr
-              className={styles.table_row}
-              {...row.getRowProps()}
-              onClick={() => handleRowClick(row)} // Attach onClick event handler to invoke handleRowClick
-            >
+            <tr className={styles.table_row} {...row.getRowProps()}>
               {row.cells.map((cell) => (
                 <td className={styles.table_body} {...cell.getCellProps()}>
                   {cell.render("Cell")}
                 </td>
               ))}
               <td className={styles.table_options_body}>
+                <button onClick={() => handleUpdate(row.original)}>Update</button>
 
-              {showAddButton && (
-                  <button onClick={() => handleAdd(row)}>Add</button>
-                )}
-                {showUpdateButton && (
-                  <button onClick={() => handleUpdate(row)}>Update</button>
-                )}
-                {showDeleteButton && (
-                  <button onClick={() => handleDelete(row)}>Delete</button>
-                )}
-                
-               
+                <button onClick={() => handleDelete(row.original.departmentId)}>
+                  Delete
+                </button>
               </td>
             </tr>
           );
@@ -70,4 +57,3 @@ function Table({
 }
 
 export default Table;
-

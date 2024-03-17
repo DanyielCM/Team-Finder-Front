@@ -5,7 +5,7 @@ import Form from "../../components/common/form.jsx";
 
 import React, { useState } from "react";
 
-import UserRegisterService from "../../services/auth.service";
+import UserRegisterService from "../../services/register.service";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
@@ -21,7 +21,7 @@ export default function UserRegisterPage() {
 
   const fields = [
     
-    { name: "employeeName", label: "Name", type: "text", placeholder: "Name" },
+    { name: "employeeUserName", label: "Name", type: "text", placeholder: "Name" },
 
     {
       name: "employeeEmail",
@@ -39,13 +39,13 @@ export default function UserRegisterPage() {
 
   const handleSubmit = (formData) => {
     console.log(formData);
-    UserRegisterService.registerOrg(formData)
+    UserRegisterService.register(formData,id)
       .then((isRegistered) => {
         if (isRegistered) {
           alert("Success");
           navigateTo("/sign-in");
         } else {
-          window.location.reload(false);
+       //   window.location.reload(false);
           console.error("Registration failed.");
         }
       })

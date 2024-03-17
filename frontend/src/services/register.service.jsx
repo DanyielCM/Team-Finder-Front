@@ -1,17 +1,21 @@
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8080/auth/";
+
+
+const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
 
 //TODO: employee link
-const register = (data) => {
-  return fetch(API_URL + "signup", {
+const register = (data,id) => {
+  console.log("Id:"+id);
+  return fetch(API_URL + "/auth/employee/register?orgId="+id, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ data }),
+    body: JSON.stringify( data ),
   })
     .then((response) => {
       console.log("Register status:", response.status);
@@ -24,7 +28,7 @@ const register = (data) => {
         alert("User already exist!");
         throw new Error("User already exist!");
       } else {
-        alert("User already exists");
+        alert("Cannot register user");
         throw new Error("Network response was not ok.", response.status);
       }
     })
@@ -35,7 +39,7 @@ const register = (data) => {
 };
 
 const registerOrg = (data) => {
-  return fetch(API_URL + "register", {
+  return fetch(API_URL + "/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

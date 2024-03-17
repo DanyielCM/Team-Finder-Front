@@ -6,6 +6,8 @@ import { MAIN_NAV_ITEMS } from "../../../../assets/const.utils";
 import NavItem from "./NavItem";
 
 export default function MainNav({ onNavItemSelect }) {
+
+
   const handleNavItemSelection = (selectedItem) => {
     onNavItemSelect(selectedItem);
   };
@@ -22,10 +24,11 @@ export default function MainNav({ onNavItemSelect }) {
 
       <ul className={styles.list}>
         {MAIN_NAV_ITEMS.map((navItem) => (
+        {MAIN_NAV_ITEMS.map((navItem) => (
           <NavItem
             key={navItem.title}
             {...navItem}
-            onClick={() => handleNavItemSelection(navItem.title)} // Invoke with the title
+            onClick={() => handleNavItemSelection(navItem.title)}
           />
         ))}
       </ul>

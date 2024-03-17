@@ -45,7 +45,6 @@
   margin: 0.5vw;
   background-color: palevioletred;
   border-radius: 10px;
-  font-size: 1vw;
 }
 
 .title,
@@ -59,4 +58,8 @@
 
 .description {
   font-size: 0.6vw;
+}
+
+.dropdown{
+margin-bottom: 1vw;
 }

@@ -6,13 +6,46 @@ import Panel from "./Panel";
 import { SECONDARY_NAV_ITEMS_ADMIN } from "../../../../assets/const.utils";
 import { SECONDARY_NAV_ITEMS_PROJ } from "../../../../assets/const.utils";
 import { SECONDARY_NAV_ITEMS_DEP } from "../../../../assets/const.utils";
+import React, { useState } from "react";
+import { Dropdown } from "primereact/dropdown";
+//theme
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+    
+//core
+import "primereact/resources/primereact.min.css";   
 
-const authorities = AuthService.getAuthority();
+export default function Panels({onPanelSelect}) {
+  const [selectedAuthority, setSelectedAuthority] = useState(null);
 
-export default function Panels() {
+  const authorities = AuthService.getAuthority();
+
+  const handleAuthorityChange = (e) => {
+    const selectedOption = e.value;
+    console.log("Selected Authority:", selectedOption);
+    setSelectedAuthority(selectedOption);
+  };
+  const handleNavItemSelection = (title) => {
+    onPanelSelect(title);
+  };
+
+ 
+
   return (
     <>
-      {authorities.some(str => str.includes("Organization Admin")) ? (
+      <div>
+        <div className={styles.dropdown}>
+          <Dropdown
+          
+            value={selectedAuthority}
+            onChange={handleAuthorityChange}
+            options={authorities}
+            optionLabel="" // Adjust this if the property name is different
+            placeholder="Select an Authority"
+            className="w-full md:w-14rem"
+          />
+        </div>
+      </div>
+      {selectedAuthority==="OrganizationAdmin" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Admin Panel</span>
@@ -26,13 +59,13 @@ export default function Panels() {
               <Panel
                 key={navItem.title}
                 {...navItem}
-                onClick={() => handleNavItemSelection(navItem.title)} // Invoke with the title
+                onClick={() => handleNavItemSelection(navItem.title)}
               />
             ))}
           </ul>
         </div>
-      ) : undefined}
-      {authorities.some(str => str.includes("Project Manager")) ? (
+      )}
+      {selectedAuthority === "ProjectManager" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Projects Panel</span>
@@ -46,13 +79,13 @@ export default function Panels() {
               <Panel
                 key={navItem.title}
                 {...navItem}
-                onClick={() => handleNavItemSelection(navItem.title)} // Invoke with the title
+             
               />
             ))}
           </ul>
         </div>
-      ) : undefined}
-      {authorities.some(str => str.includes("Department Manager")) ? (
+      )}
+      {selectedAuthority == "DepartmentManager" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Department Panel</span>
@@ -66,12 +99,12 @@ export default function Panels() {
               <Panel
                 key={navItem.title}
                 {...navItem}
-                onClick={() => handleNavItemSelection(navItem.title)} // Invoke with the title
+                onClick={() => handleNavItemSelection(navItem.title)}
               />
             ))}
           </ul>
         </div>
-      ) : undefined}
+      )}
     </>
   );
 }
