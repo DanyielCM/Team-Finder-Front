@@ -250,6 +250,31 @@ const getUsersFromDepartment = async (depId) => {
   }
 };
 
+const getUnassignedDepartmentManagers = async (orgId) => {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+  };
+ 
+  try {
+    const response = await fetch(
+      `${API_URL}/api/api/getUnassignedDepartmentManagers?orgId=${orgId}`,
+      requestOptions
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Error fetching departments: ${error.message}`);
+  }
+};
+
 
 const UserAPI = {
   getUsers,
@@ -261,5 +286,6 @@ const UserAPI = {
   assignUserToDepartment,
   removeUserFromDepartment,
   getUsersFromDepartment,
+  getUnassignedDepartmentManagers,
 };
 export default UserAPI;

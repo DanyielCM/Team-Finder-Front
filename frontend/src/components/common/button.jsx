@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import "./Button.css";
+import "./button.css";
 
 const Button = ({ onClick, disabled, className, children }) => {
   return (

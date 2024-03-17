@@ -54,7 +54,7 @@ export default function OrgRegisterPage() {
           alert("Success");
           navigateTo("/sign-in");
         } else {
-          window.location.reload(false);
+         // window.location.reload(false);
           console.error("Registration failed.");
         }
       })

@@ -101,6 +101,16 @@ function getUsersFromDepartment(depId) {
     });
 }
 
+function getUnassignedDepartmentManagers(orgId) {
+  return Api.getUnassignedDepartmentManagers(orgId)
+    .then((unassignedUsers) => {
+      return unassignedUsers;
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error.message);
+    });
+}
+
 const UserService = {
   getUsers,
   addUserRole,
@@ -111,5 +121,6 @@ const UserService = {
   assignUserToDepartment,
   removeUserFromDepartment,
   getUsersFromDepartment,
+  getUnassignedDepartmentManagers,
 };
 export default UserService;

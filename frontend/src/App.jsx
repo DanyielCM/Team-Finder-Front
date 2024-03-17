@@ -17,12 +17,13 @@ library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell,
 
 
 
+
 function App() {
-  const toast = useRef(null);
+
   return (
     
     <PrimeReactProvider>
-    <Toast ref={toast} />
+   
      <BrowserRouter>
       <Routes>
         {}

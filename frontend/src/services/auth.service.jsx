@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PORT=8081
+const PORT=8081;
 const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
 
 
@@ -12,8 +12,11 @@ const login = (data) => {
   
   return fetch(API_URL + "/auth/login", {
     method: 'POST',
+    
     headers: {
       'Content-Type': 'application/json',
+    //  'Access-Control-Allow-Origin':'*',
+     // 'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
     },
     body: JSON.stringify(data),
   })
