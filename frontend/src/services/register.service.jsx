@@ -4,14 +4,13 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 
-const PORT=8081;
 
-const API_URL = `http://localhost:${PORT}/auth/`;
+const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
 
 //TODO: employee link
 const register = (data,id) => {
   console.log("Id:"+id);
-  return fetch(API_URL + "employee/register?orgId="+id, {
+  return fetch(API_URL + "/auth/employee/register?orgId="+id, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +39,7 @@ const register = (data,id) => {
 };
 
 const registerOrg = (data) => {
-  return fetch(API_URL + "register", {
+  return fetch(API_URL + "/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

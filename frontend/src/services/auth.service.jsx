@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const PORT=8081
-const API_URL = "http://localhost:"+PORT+"/auth/";
+const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+
 
 function getAuthorities(array) {
   return array.map(obj => obj.authority);
@@ -9,7 +10,7 @@ function getAuthorities(array) {
 
 const login = (data) => {
   
-  return fetch(API_URL + "login", {
+  return fetch(API_URL + "/auth/login", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,8 +24,8 @@ const login = (data) => {
       
       return response.json().then(data => {
         if (data.jwt) {
-          console.log("Data:",data);
-          // Store the token in local storage
+         
+     
           localStorage.setItem("jwt", JSON.stringify(data.jwt));
           localStorage.setItem("user", JSON.stringify(data.employee.employeeUserName));
           localStorage.setItem("authorities", JSON.stringify(getAuthorities(data.employee.authorities)));
@@ -69,12 +70,12 @@ const logout = () => {
 
 const getAuthority = () => {
   const authoritiesString = localStorage.getItem("authorities");
-  // Check if authoritiesString is truthy
+ 
   if (authoritiesString) {
-    // Parse the stored string into an array
+
     return JSON.parse(authoritiesString);
   } else {
-    return []; // Return an empty array if no authorities are found
+    return []; 
   }
 };
 

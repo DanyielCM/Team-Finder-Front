@@ -16,6 +16,8 @@ export default function AssignRole() {
     const [visibleUpdateRoles, setVisibleUpdateRoles] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectedRoles, setSelectedRoles] = useState([]);
+    const [fetch, setFetch] = useState();
+    
     const [roles, setRoles] = useState([
         { id: 1, role: 'Employee', name: 'Employee' },
         { id: 2, role: 'OrganizationAdmin', name: 'Organization Administrator' },
@@ -33,6 +35,7 @@ export default function AssignRole() {
       User.getUsers()
           .then((users) => {
               setUsersData(users);
+              setFetch(false);
           })
           .catch((error) => {
               console.error("Error:", error);
@@ -42,7 +45,7 @@ export default function AssignRole() {
     useEffect(() => {
       fetchData();
       
-    }, []);
+    }, [fetch]);
 
     const renderOptionsColumn = (rowData) => {
         return (
@@ -64,6 +67,7 @@ export default function AssignRole() {
       rolesToAdd.forEach(role => {
           console.log(role);
          User.addUserRole(selectedUser.employeeId, role.role);
+         
         
       });
       
@@ -74,9 +78,10 @@ export default function AssignRole() {
           
       });
   
-      window.location.reload(false);
+      
       setVisibleUpdateRoles(false);
         setVisibleUpdateRoles(false);
+        setFetch(true);
     };
     const renderAuthoritiesCell = (rowData) => {
       if (Array.isArray(rowData.authorities)) {

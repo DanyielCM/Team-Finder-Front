@@ -1,7 +1,8 @@
 
 
 import AuthService from "../../services/auth.service";
-const PORT=8081;
+
+const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
 
 const token=AuthService.getJwt();
 
@@ -18,7 +19,7 @@ const getSkillCategories = async (orgId) => {
     };
   
     try {
-        const response = await fetch(`http://localhost:${PORT}/api/skills/getSkillCategories/${orgId}`, requestOptions);
+        const response = await fetch(`${API_URL}/api/skills/getSkillCategories/${orgId}`, requestOptions);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -41,7 +42,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:${PORT}/api/skills/addSkillCategory/${categoryName}/${depId}`,
+        `${API_URL}/api/skills/addSkillCategory/${categoryName}/${depId}`,
         requestOptions
       );
   
@@ -69,7 +70,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:${PORT}/api/skills/removeSkillCategory/${skillCatId}`,
+        `${API_URL}/api/skills/removeSkillCategory/${skillCatId}`,
         requestOptions
       );
       if (!response.ok) {
@@ -93,7 +94,7 @@ const getSkillCategories = async (orgId) => {
       headers: headers
     };
     try {
-      const response = await fetch(`http://localhost:${PORT}/api/skills/updateSkillCategoryName/${skillCatId}/${newName}`, requestOptions);
+      const response = await fetch(`${API_URL}/api/skills/updateSkillCategoryName/${skillCatId}/${newName}`, requestOptions);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -120,7 +121,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:${PORT}/api/skills/addSkillsToCategory/${skillName}/${skillDescription}/${employeeId}/${skillCategoryId}/${departmentId}`,
+        `${API_URL}/api/skills/addSkillsToCategory/${skillName}/${skillDescription}/${employeeId}/${skillCategoryId}/${departmentId}`,
         requestOptions
       );
   
@@ -149,7 +150,7 @@ const getSkillCategories = async (orgId) => {
     };
   
     try {
-        const response = await fetch(`http://localhost:${PORT}/api/skills/getSkillsByDepartmentAndCategory/${departmentId}/${skillCategoryId}`, requestOptions);
+        const response = await fetch(`${API_URL}/api/skills/getSkillsByDepartmentAndCategory/${departmentId}/${skillCategoryId}`, requestOptions);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -173,7 +174,7 @@ const getSkillCategories = async (orgId) => {
   
     try {
       const response = await fetch(
-        `http://localhost:${PORT}/api/skills/removeSkill/${skillId}`,
+        `${API_URL}/api/skills/removeSkill/${skillId}`,
         requestOptions
       );
       if (!response.ok) {
@@ -198,7 +199,7 @@ const getSkillCategories = async (orgId) => {
       headers: headers
     };
     try {
-      const response = await fetch(`http://localhost:${PORT}/api/skills/updateSkill/${skillId}/${newSkillName}/${newSkillDescription}`, requestOptions);
+      const response = await fetch(`${API_URL}/api/skills/updateSkill/${skillId}/${newSkillName}/${newSkillDescription}`, requestOptions);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);

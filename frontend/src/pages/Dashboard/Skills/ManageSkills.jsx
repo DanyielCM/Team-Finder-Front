@@ -39,6 +39,8 @@ export default function ManageSkills() {
   const [visibleDeleteSkillCat, setVisibleDeleteSkillCatRow] = useState(false);
   const [visibleUpdateSkillCat, setVisibleUpdateSkillCatRow] = useState(false);
 
+  const [fetch, setFetch] = useState();
+
   const footerCreateSKillCat = (
     <div className={styles.footer_buttons}>
       <Button
@@ -109,12 +111,14 @@ export default function ManageSkills() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+    
+  }, [fetch]);
 
   const fetchData = () => {
     SkillsService.getSkillCategories(orgId)
       .then((skillsCat) => {
         setSkillCatData(skillsCat);
+        setFetch(false);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -133,7 +137,7 @@ export default function ManageSkills() {
     SkillsService.addSkillCategory(skillCat, orgId);
     setVisibleCreateSkillCat(false);
     setSkillCat("");
-    window.location.reload(false);
+    setFetch(true);
   };
 
   const handleConfirmUpdateSkillCat = () => {
@@ -143,14 +147,15 @@ export default function ManageSkills() {
     );
     setVisibleUpdateSkillCatRow(false);
     setSkillCat("");
-    window.location.reload(false);
+    setFetch(true);
   };
 
   const handleConfirmUpdateSkill = () => {
     SkillsService.updateSkill(selectedSkill.skillId,skillName,skillDescription);
     setVisibleUpdateSkill(false);
     setSelectedSkill("");
-    window.location.reload(false);
+    returnToMainTable();
+     setFetch(true);
   };
 
   const handleConfirmCreateSkill = () => {
@@ -162,7 +167,8 @@ export default function ManageSkills() {
       department[0].departmentId
     );
     setVisibleCreateSkill(false);
-    window.location.reload(false);
+    returnToMainTable();
+    setFetch(true);
   };
 
   const onSkillCatRowSelect = (event) => {
@@ -215,7 +221,8 @@ export default function ManageSkills() {
 
   const acceptRemoveSkill = () => {
     SkillsService.removeSkill(selectedSkill.skillId);
-    window.location.reload(false);
+    setFetch(true);
+    returnToMainTable();
   };
 
   const handleDeleteSkillCat = (rowData) => {
@@ -231,7 +238,7 @@ export default function ManageSkills() {
 
   const acceptRemoveSkillCat = () => {
     SkillsService.removeSkillCategory(selectedSkill.skillCategoryId);
-    window.location.reload(false);
+    setFetch(true);
   };
 
   const reject = () => {};
@@ -244,6 +251,7 @@ export default function ManageSkills() {
       .then((skills) => {
         console.log(skills);
         setSkillsData(skills);
+        
       })
       .catch((error) => {
         console.error("Error:", error);

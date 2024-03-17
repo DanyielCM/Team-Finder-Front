@@ -50,6 +50,7 @@ export default function ManageDepartment() {
   const [selectedRow, setSelectedRow] = useState(null);
   const [unassignedUsers, setUnassignedUsers] = useState(null);
   const [showUnassignedEmployees, setShowUnassignedEmployees] = useState(false);
+  const [fetch, setFetch] = useState(null);
   const [departmentData, setDepartmentData] = useState([
     {
       id: 0,
@@ -66,7 +67,8 @@ export default function ManageDepartment() {
     User.assignUserToDepartment(member.employeeId, department.departmentId);
     setVisibleAssignDep(false);
     setDepartment("");
-    window.location.reload(false);
+    setFetch(true);
+   
   };
 
   const reject = () => {};
@@ -99,6 +101,7 @@ export default function ManageDepartment() {
 
   const handleShowUnassignedEmployees = () => {
     setShowUnassignedEmployees(true);
+    setFetch(true);
   };
 
   const handleReturnClick1 = () => {
@@ -109,6 +112,7 @@ export default function ManageDepartment() {
     DepartmentService.getDepartmentByManager()
       .then((data) => {
         setDepartmentData(data);
+        setFetch(false);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -126,7 +130,7 @@ export default function ManageDepartment() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetch]);
 
   const renderTable = () => {
     if (showUnassignedEmployees) {
@@ -183,7 +187,7 @@ export default function ManageDepartment() {
         group="declarative"
         visible={visibleAssignDep}
         onHide={() => setVisibleAssignDep(false)}
-        message="Are you sure you want to department this memeber?"
+        message="Are you sure you want to assign this member to deparment?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
         accept={accept}

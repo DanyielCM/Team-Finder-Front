@@ -25,15 +25,11 @@ export default function Department() {
   const [departmentDesc, setDepartmentDesc] = useState("");
   const [departmentManager, setDepartmentManager] = useState("");
   const [selectedCell, setSelectedCell] = useState(null);
+  const [fetch, setFetch] = useState();
+  
+ 
 
-  const [departmentData, setDepartmentData] = useState([
-    {
-      id: 0,
-      departmentName: "",
-      departmentDescription: "",
-      departmentManager: "",
-    },
-  ]);
+  const [departmentData, setDepartmentData] = useState();
 
   const orgId = AuthService.getOrgId();
 
@@ -69,20 +65,31 @@ export default function Department() {
     setDepartmentDesc("");
     setDepartmentId(null);
     setDepartmentManager("");
-    fetchData();
-    window.location.reload(false);
+    setFetch(true);
+   
+   
+   
+   
   };
 
   const handleConfirmUpdateName = () => {
     DepartmentService.updateDepartmentName(departmentId, departmentName);
+    setDepartmentName("");
     setVisibleUpdateName(false);
-    window.location.reload(false);
+    setFetch(true);
+    
+   
+   
   };
 
   const handleConfirmUpdateDesc = () => {
     DepartmentService.updateDepartmentDescription(departmentId, departmentDesc);
+    setDepartmentDesc("");
     setVisibleUpdateDesc(false);
-    window.location.reload(false);
+    setFetch(true);
+   
+   
+ 
   };
 
   const handleConfirmUpdateManager = () => {
@@ -90,13 +97,21 @@ export default function Department() {
       departmentId,
       departmentManager.employeeId
     );
+    setDepartmentManager("");
     setVisibleUpdateMananger(false);
-    window.location.reload(false);
+    setFetch(true);
+   
+  
+   
   };
 
   const accept = () => {
     DepartmentService.deleteDepartment(departmentId);
-    window.location.reload(false);
+    setFetch(true);
+   
+
+
+   
   };
 
   const reject = () => {};
@@ -143,6 +158,8 @@ export default function Department() {
     DepartmentService.getDepartments()
       .then((parsedData) => {
         setDepartmentData(parsedData);
+        setFetch(false);
+        
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -157,10 +174,14 @@ export default function Department() {
         console.error("Error:", error);
       });
   };
+  console.log("useEfffect");
+  
 
   useEffect(() => {
+   
     fetchData();
-  }, []);
+    
+  }, [fetch]);
 
   const footerCreate = (
     <div className={styles.footer_buttons}>

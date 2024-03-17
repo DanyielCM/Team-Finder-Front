@@ -12,6 +12,7 @@ export default function DepartmentDetails({ selectedDepartment,onReturnClick  })
     const [departmentUsers, setDepartmentUsers] = useState(null); 
     const [deleteRow, setDeleteRow] = useState(false);
     const [user, setUser] = useState(false);
+    const [fetch, setFetch] = useState(null);
     
     
 
@@ -34,7 +35,8 @@ export default function DepartmentDetails({ selectedDepartment,onReturnClick  })
     };
     const accept = () => {
       User.removeUserFromDepartment(user, selectedDepartment.departmentId)
-      window.location.reload(false);
+      setFetch(true);
+      
     };
 
     const reject = () => {};
@@ -45,6 +47,7 @@ export default function DepartmentDetails({ selectedDepartment,onReturnClick  })
         .then((users) => {
           console.log("Users department details:", users);
           setDepartmentUsers(users);
+          setFetch(false);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -55,7 +58,7 @@ export default function DepartmentDetails({ selectedDepartment,onReturnClick  })
     useEffect(() => {
       fetchData();
 
-    }, []);
+    }, [fetch]);
 
 
   

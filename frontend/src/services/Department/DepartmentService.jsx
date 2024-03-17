@@ -4,6 +4,7 @@ import React from 'react';
 
 
 
+
 function parseDepartmentData(jsonData) {
     return jsonData.map((department) => ({
       departmentId: department.departmentId,
@@ -19,7 +20,7 @@ const createDepartment = (data) => {
 
   console.log(token);
   console.log("Data:", data);
-  return fetch("http://localhost:8081/api/createDepartment", {
+  return fetch("http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/api/createDepartment", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -67,7 +68,7 @@ function getDepartmentByManager() {
         
 
           const filteredDepartments = departments.filter(dept => dept.departmentManager.employeeUserName===JSON.parse(localStorage.getItem('user')));
-          console.log("abc",localStorage.getItem('user'));
+          
           const parse = parseDepartmentData(filteredDepartments);
           return parse;
       })

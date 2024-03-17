@@ -1,15 +1,17 @@
 
-const PORT=8081;
+
 
 import AuthService from "../../services/auth.service";
 import axios from 'axios';
+
+const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
 
 const token=AuthService.getJwt();
 
 const createDepartment = (data) => {
   console.log(token);
   console.log("Data:", data);
-  return fetch("http://localhost:${PORT}/api/createDepartment", {
+  return fetch(`${API_URL}/api/createDepartment`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -47,7 +49,7 @@ const getDepartments = async (orgId) => {
   };
 
   try {
-      const response = await fetch(`http://localhost:${PORT}/api/getDepartments/${orgId}`, requestOptions);
+      const response = await fetch(`${API_URL}/api/getDepartments/${orgId}`, requestOptions);
       if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -69,7 +71,7 @@ const deleteDepartment = async (id) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:${PORT}/api/deleteDepartment/${id}`, requestOptions);
+    const response = await fetch(`${API_URL}/api/deleteDepartment/${id}`, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -93,7 +95,7 @@ const updateDepartmentName = async (depId, newName) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:${PORT}/api/updateDepartmentName?department=${depId}&newName=${newName}`, requestOptions);
+    const response = await fetch(`${API_URL}/api/updateDepartmentName?department=${depId}&newName=${newName}`, requestOptions);
     
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -117,7 +119,7 @@ const updateDepartmentDescription = async (depId, newDesc) => {
     headers: headers
   };
   try {
-    const response = await fetch(`http://localhost:${PORT}/api/updateDepartmentDescription?department=${depId}&newDescription=${newDesc}`, requestOptions);
+    const response = await fetch(`${API_URL}/api/updateDepartmentDescription?department=${depId}&newDescription=${newDesc}`, requestOptions);
     
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -143,7 +145,7 @@ const changeDepartmentManager = async (depId, newManagerId) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:${PORT}/api/changeDepartmentManager?department=${depId}&newManager=${newManagerId}`, requestOptions);
+    const response = await fetch(`${API_URL}/api/changeDepartmentManager?department=${depId}&newManager=${newManagerId}`, requestOptions);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
