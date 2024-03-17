@@ -3,7 +3,6 @@ import styles from "./SecondaryNav.module.css";
 import ProfileImage from "../../../../assets/user_profile_image.png";
 import User from "./User";
 import Panels from "./Panels";
-import Panels from "./Panels";
 
 import AuthService from "../../../services/auth.service";
 import { useNavigate } from "react-router-dom";
@@ -14,8 +13,6 @@ export default function SecondaryNav({ onSelectedItem}) {
   const authorities = AuthService.getAuthority();
 
   function getAuthorities(array) {
-    return array.map((obj) => obj.authority);
-  }
     return array.map((obj) => obj.authority);
   }
 
