@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, Router} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -24,7 +24,7 @@ function App() {
     
     <PrimeReactProvider>
    
-     <Router>
+     <BrowserRouter>
       <Routes>
         {}
         <Route exact path="/" element={<StartPage />} />
@@ -39,7 +39,7 @@ function App() {
        
 
       </Routes>
-    </Router>
+    </BrowserRouter>
 </PrimeReactProvider>
    
   );
