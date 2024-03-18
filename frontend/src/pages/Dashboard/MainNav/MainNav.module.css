@@ -19,6 +19,12 @@
   bottom: 2vw;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .list {
   list-style-type: none;
   padding: 0;
@@ -34,6 +40,10 @@
 }
 
 .icons {
-  margin-right: 2vw;
-  width: 1.2vw;
+  flex: 0 0 30%;
+  min-width: 2vw;
+}
+
+.title {
+  flex: 0 0 70%;
 }
