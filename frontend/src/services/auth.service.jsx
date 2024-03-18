@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const PORT=8081;
-const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
-
+const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL1='http://localhost:8081';
 
 function getAuthorities(array) {
   return array.map((obj) => obj.authority);
@@ -15,8 +15,9 @@ const login = (data) => {
     
     headers: {
       'Content-Type': 'application/json',
-    //  'Access-Control-Allow-Origin':'*',
-     // 'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods':'POST,GET,DELETE,UPDATE',
+    
     },
     body: JSON.stringify(data),
   })

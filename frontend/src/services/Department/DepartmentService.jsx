@@ -20,7 +20,7 @@ const createDepartment = (data) => {
 
   console.log(token);
   console.log("Data:", data);
-  return fetch("http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/api/createDepartment", {
+  return fetch("https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/api/createDepartment", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,

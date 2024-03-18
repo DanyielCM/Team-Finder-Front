@@ -26,6 +26,7 @@ export default function SignInUserPage() {
   const handleSubmit = (formData) => {
     //navigate("/dashboard"); //Just for test dashboard
     if (formData.email !== "" && formData.password !== "") {
+     
       AuthService.login(formData)
         .then((response) => {
           if (response.success) {

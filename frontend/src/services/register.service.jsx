@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL1='http://localhost:8081';
 
 //TODO: employee link
 const register = (data,id) => {
@@ -14,6 +15,7 @@ const register = (data,id) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      
     },
     body: JSON.stringify( data ),
   })

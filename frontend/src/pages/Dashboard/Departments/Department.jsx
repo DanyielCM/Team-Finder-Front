@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Button } from "primereact/button";
+import { Button } from 'primereact/button';
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
@@ -11,6 +11,7 @@ import { classNames } from "primereact/utils";
 import AuthService from "../../../services/auth.service";
 import DepartmentService from "../../../services/Department/DepartmentService";
 import User from "../../../services/User/UserService";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 import styles from "./Department.module.css";
 
 export default function Department() {

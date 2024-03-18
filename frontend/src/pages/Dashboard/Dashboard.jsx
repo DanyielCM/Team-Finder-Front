@@ -11,6 +11,7 @@ import Department from "./Departments/Department.jsx";
 import AssignRole from "./AssignRole/AssignRole.jsx";
 import ManageDepartment from "./Departments/ManageDepartment.jsx";
 import ManageSkills from "./Skills/ManageSkills.jsx";
+import { Button } from 'primereact/button';
 
 export default function Dashboard() {
 
@@ -36,6 +37,7 @@ export default function Dashboard() {
   
   return (
     <div className={styles.background}>
+   
         <MainNav
           onNavItemSelect={(selectedItem) => handleNavItemSelection(selectedItem)}
         />

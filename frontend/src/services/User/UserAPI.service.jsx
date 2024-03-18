@@ -2,8 +2,8 @@ import Api from "./UserAPI.service.jsx";
 import AuthService from "../../services/auth.service";
 import React from "react";
 
-const API_URL='http://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
-
+const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL1='http://localhost:8081';
 
 const token = AuthService.getJwt();
 

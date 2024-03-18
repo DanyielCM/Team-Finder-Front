@@ -14,7 +14,7 @@ import { PrimeReactProvider, PrimeReactContext } from 'primereact/api'
 import React, { useRef } from 'react';
 import { Toast } from 'primereact/toast';
 library.add( faHouse, faUser, faFolderOpen, faUsers, faEnvelope, faGear, faBell, faArrowRightFromBracket);
-
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 
 
