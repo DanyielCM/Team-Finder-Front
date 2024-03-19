@@ -14,38 +14,12 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 //core
 import "primereact/resources/primereact.min.css";   
 
-export default function Panels({onPanelSelect}) {
-  const [selectedAuthority, setSelectedAuthority] = useState(null);
-
+export default function Panels() {
   const authorities = AuthService.getAuthority();
-
-  const handleAuthorityChange = (e) => {
-    const selectedOption = e.value;
-    console.log("Selected Authority:", selectedOption);
-    setSelectedAuthority(selectedOption);
-  };
-  const handleNavItemSelection = (title) => {
-    onPanelSelect(title);
-  };
-
- 
 
   return (
     <>
-      <div>
-        <div className={styles.dropdown}>
-          <Dropdown
-          
-            value={selectedAuthority}
-            onChange={handleAuthorityChange}
-            options={authorities}
-            optionLabel="" // Adjust this if the property name is different
-            placeholder="Select an Authority"
-            className="w-full md:w-14rem"
-          />
-        </div>
-      </div>
-      {selectedAuthority==="OrganizationAdmin" && (
+      {authorities==="OrganizationAdmin" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Admin Panel</span>
@@ -65,7 +39,7 @@ export default function Panels({onPanelSelect}) {
           </ul>
         </div>
       )}
-      {selectedAuthority === "ProjectManager" && (
+      {authorities === "ProjectManager" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Projects Panel</span>
@@ -85,7 +59,7 @@ export default function Panels({onPanelSelect}) {
           </ul>
         </div>
       )}
-      {selectedAuthority == "DepartmentManager" && (
+      {authorities == "DepartmentManager" && (
         <div className={styles.panel}>
           <div className={styles.panel_name}>
             <span>Department Panel</span>

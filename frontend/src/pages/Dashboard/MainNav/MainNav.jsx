@@ -14,13 +14,11 @@ export default function MainNav({ onNavItemSelect }) {
 
   return (
     <nav className={styles.navbar}>
-      <a href="/">
         <img
           src={LogoImage}
           alt="Team Finder Logo"
           className={styles.team_finder_logo}
         ></img>
-      </a>
 
       <ul className={styles.list}>
         {MAIN_NAV_ITEMS.map((navItem) => (
