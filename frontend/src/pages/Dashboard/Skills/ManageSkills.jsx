@@ -47,13 +47,15 @@ export default function ManageSkills() {
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleCreateSkillCat(false)}
-        className="p-button-text"
+        
+        className={styles.btn_cancel}
       />
       <Button
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmCreateSkillCat()}
         autoFocus
+        className={styles.btn}
       />
     </div>
   );
@@ -64,13 +66,14 @@ export default function ManageSkills() {
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleUpdateSkillCatRow(false)}
-        className="p-button-text"
+        className={styles.btn_cancel}
       />
       <Button
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmUpdateSkillCat()}
         autoFocus
+        className={styles.btn}
       />
     </div>
   );
@@ -81,13 +84,14 @@ export default function ManageSkills() {
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleUpdateSkill(false)}
-        className="p-button-text"
+        className={styles.btn_cancel}
       />
       <Button
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmUpdateSkill()}
         autoFocus
+        className={styles.btn}
       />
     </div>
   );
@@ -98,13 +102,14 @@ export default function ManageSkills() {
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleCreateSkill(false)}
-        className="p-button-text"
+        className={styles.btn_cancel}
       />
       <Button
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmCreateSkill()}
         autoFocus
+        className={styles.btn}
       />
     </div>
   );
@@ -190,6 +195,7 @@ export default function ManageSkills() {
         label="Delete"
         onClick={() => handleDeleteSkill(rowData)}
         severity="danger"
+        className={styles.btn_cancel}
         raised
       />
     );
@@ -202,12 +208,14 @@ export default function ManageSkills() {
           label="Delete"
           onClick={() => handleDeleteSkillCat(rowData)}
           severity="danger"
+          className={styles.btn_cancel}
           raised
         />
         <Button
           label="Edit category"
           onClick={() => handleUpdateSkillCat(rowData)}
           severity="primery"
+          className={styles.btn}
           raised
         />
       </>
@@ -222,12 +230,15 @@ export default function ManageSkills() {
   const acceptRemoveSkill = () => {
     SkillsService.removeSkill(selectedSkill.skillId);
     setFetch(true);
+    setVisibleDeleteSkill(false);
+    setVisibleCreateSkillCat(false);
     returnToMainTable();
   };
 
   const handleDeleteSkillCat = (rowData) => {
     setSelectedSkill(rowData);
     setVisibleDeleteSkillCatRow(true);
+   
   };
 
   const handleUpdateSkillCat = (rowData) => {
@@ -238,7 +249,10 @@ export default function ManageSkills() {
 
   const acceptRemoveSkillCat = () => {
     SkillsService.removeSkillCategory(selectedSkill.skillCategoryId);
+    setVisibleDeleteSkill(false);
+    setVisibleCreateSkillCat(false);
     setFetch(true);
+    
   };
 
   const reject = () => {};
@@ -273,7 +287,7 @@ export default function ManageSkills() {
             <Button
               label="Return to Main Table"
               onClick={returnToMainTable}
-              className="p-button-secondary"
+              className={styles.btn}
             />
             <div className={styles.btn_container}>
               {" "}
@@ -281,6 +295,7 @@ export default function ManageSkills() {
                 label="Add skill"
                 onClick={() => setVisibleCreateSkill(true)}
                 severity="success"
+                className={styles.btn}
               />
             </div>
             <DataTable
@@ -324,6 +339,7 @@ export default function ManageSkills() {
                 label="Create skill category"
                 onClick={() => setVisibleCreateSkillCat(true)}
                 severity="success"
+                className={styles.btn}
               />
             </div>
             <DataTable
@@ -465,8 +481,23 @@ export default function ManageSkills() {
         message="Are you sure you want to delete this skill category?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
-        accept={acceptRemoveSkill}
-        reject={reject}
+        footer={
+    <div  className={styles.footer_btn}>
+      <Button
+        label="Yes"
+        icon="pi pi-check"
+        onClick={acceptRemoveSkill}
+        className={styles.btn}
+      />
+      <Button
+        label="No"
+        icon="pi pi-times"
+        onClick={reject}
+        className={styles.btn_cancel}
+      />
+    </div>
+  }
+       
       />
       <ConfirmDialog
         group="declarative"
@@ -475,8 +506,23 @@ export default function ManageSkills() {
         message="Are you sure you want to delete this skill?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
-        accept={acceptRemoveSkillCat}
-        reject={reject}
+        footer={
+    <div  className={styles.footer_btn}>
+      <Button
+        label="Yes"
+        icon="pi pi-check"
+        onClick={acceptRemoveSkillCat}
+        className={styles.btn}
+      />
+      <Button
+        label="No"
+        icon="pi pi-times"
+        onClick={reject}
+        className={styles.btn_cancel}
+      />
+    </div>
+  }
+       
       />
     </div>
   );

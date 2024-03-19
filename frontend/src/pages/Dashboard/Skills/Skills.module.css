@@ -14,10 +14,29 @@
   }
 
   .btn{
-    float: right;
+   
     margin-bottom: 20px;
-    width: 200px;
+    width: 180px;
+    background-color: rgb(0, 140, 255);
+    padding: 10px;
   }
+
+
+  .footer_btn{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+
+  .btn_cancel{
+    
+    margin-bottom: 20px;
+    width: 180px;
+    background-color: rgb(255, 0, 0);
+    padding: 10px;
+  }
+
   .btn_container{
     display: flex;
     justify-content: flex-end;

@@ -27,7 +27,7 @@ export default function Banner() {
         <div className={styles.dashboard}>
           {" "}
           {isAdmin && (
-            <a href={"/register-user?id=" + orgId + "&organisation=" + orgName} target="_blank">
+            <a href={"/#/register-user?id=" + orgId + "&organisation=" + orgName} target="_blank">
               Get Employee URL
             </a>
           )}
