@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Panels.module.css";
 import AuthService from "../../../services/auth.service";
+import React, { useState } from "react";
 
 import Panel from "./Panel";
 import { SECONDARY_NAV_ITEMS_ADMIN, SECONDARY_NAV_ITEMS_PROJ, SECONDARY_NAV_ITEMS_DEP  } from "../../../../assets/const_utils";

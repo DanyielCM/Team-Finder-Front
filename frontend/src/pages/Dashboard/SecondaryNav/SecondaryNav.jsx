@@ -7,7 +7,7 @@ import Panels from "./Panels";
 import AuthService from "../../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
-export default function SecondaryNav() {
+export default function SecondaryNav({ onSelectedItem}) {
   const navigateTo = useNavigate();
   const currentUser = AuthService.getCurrentUser();
   const authorities = AuthService.getAuthority();
