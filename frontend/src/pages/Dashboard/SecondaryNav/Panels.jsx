@@ -7,7 +7,20 @@ import { SECONDARY_NAV_ITEMS_ADMIN, SECONDARY_NAV_ITEMS_PROJ, SECONDARY_NAV_ITEM
 
 const authorities = AuthService.getAuthority();
 
-export default function Panels() {
+export default function Panels({onPanelSelect}) {
+  const [selectedAuthority, setSelectedAuthority] = useState(null);
+
+  const authorities = AuthService.getAuthority();
+
+  const handleAuthorityChange = (e) => {
+    const selectedOption = e.value;
+    console.log("Selected Authority:", selectedOption);
+    setSelectedAuthority(selectedOption);
+  };
+  const handleNavItemSelection = (title) => {
+    onPanelSelect(title);
+  };
+
   return (
     <>
       {authorities.some(str => str.includes("OrganizationAdmin")) ? (
