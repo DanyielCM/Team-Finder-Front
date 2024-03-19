@@ -106,8 +106,9 @@ export default function Department() {
    
   };
 
-  const accept = () => {
+  const acceptDelete = () => {
     DepartmentService.deleteDepartment(departmentId);
+    setDeleteRow(false)
     setFetch(true);
    
 
@@ -115,7 +116,7 @@ export default function Department() {
    
   };
 
-  const reject = () => {};
+  const reject = () => {setDeleteRow(false)};
 
   const onCellSelect = (event) => {
     console.log(event.field);
@@ -140,6 +141,7 @@ export default function Department() {
   const renderOptionsColumn = (rowData) => {
     return (
       <Button
+       className={styles.btn_cancel}
         label="Delete"
         onClick={() => handleDelete(rowData)}
         severity="danger"
@@ -152,7 +154,7 @@ export default function Department() {
     setDepartmentManager(event.value);
     setDepartmentId(rowData.departmentId);
     setDeleteRow(true);
-    console.log("Deleting row:", rowData);
+   
   };
 
   const fetchData = () => {
@@ -168,14 +170,14 @@ export default function Department() {
 
     User.getUsersByRoles(orgId, "DepartmentManager")
       .then((users) => {
-        console.log("Users:", users);
+        
         setUsersData(users);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
-  console.log("useEfffect");
+
   
 
   useEffect(() => {
@@ -187,12 +189,14 @@ export default function Department() {
   const footerCreate = (
     <div className={styles.footer_buttons}>
       <Button
+       className={styles.btn_cancel}
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleCreate(false)}
-        className="p-button-text"
+     
       />
       <Button
+       className={styles.btn}
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmCreate()}
@@ -204,12 +208,14 @@ export default function Department() {
   const footerUpdateName = (
     <div className={styles.footer_buttons}>
       <Button
+       className={styles.btn_cancel}
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleUpdateName(false)}
-        className="p-button-text"
+        
       />
       <Button
+       className={styles.btn}
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmUpdateName()}
@@ -221,12 +227,14 @@ export default function Department() {
   const footerUpdateDesc = (
     <div className={styles.footer_buttons}>
       <Button
+       className={styles.btn_cancel}
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleUpdateDesc(false)}
-        className="p-button-text"
+        
       />
       <Button
+       className={styles.btn}
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmUpdateDesc()}
@@ -238,12 +246,14 @@ export default function Department() {
   const footerUpdateManager = (
     <div className={styles.footer_buttons}>
       <Button
+       className={styles.btn}
         label="Cancel"
         icon="pi pi-times"
         onClick={() => setVisibleUpdateMananger(false)}
-        className="p-button-text"
+      
       />
       <Button
+       className={styles.btn}
         label="Confirm"
         icon="pi pi-check"
         onClick={() => handleConfirmUpdateManager()}
@@ -412,8 +422,22 @@ export default function Department() {
         message="Are you sure you want to delete this deparment?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
-        accept={accept}
-        reject={reject}
+        footer={
+    <div  className={styles.footer_btn}>
+      <Button
+        label="Yes"
+        icon="pi pi-check"
+        onClick={acceptDelete}
+        className={styles.btn}
+      />
+      <Button
+        label="No"
+        icon="pi pi-times"
+        onClick={reject}
+        className={styles.btn_cancel}
+      />
+    </div>
+  }
       />
     </div>
   );

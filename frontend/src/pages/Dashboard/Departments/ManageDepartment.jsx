@@ -28,7 +28,7 @@ export default function ManageDepartment() {
       <>
         {" "}
         <h1>Unassigned Employees</h1>
-        <Button label="Return" onClick={handleReturnClick} className="p-mb-2" />
+        <Button label="Return" onClick={handleReturnClick} className={styles.btn} />
         <DataTable value={unassignedUsers} tableStyle={{ minWidth: "67vw" }}>
           <Column field="employeeUserName" header="Employee Name"></Column>
           <Column field="employeeEmail" header="Email"></Column>
@@ -63,7 +63,7 @@ export default function ManageDepartment() {
   const orgId = AuthService.getOrgId();
 
   const accept = () => {
-    console.log(department);
+   
     User.assignUserToDepartment(member.employeeId, department.departmentId);
     setVisibleAssignDep(false);
     setDepartment("");
@@ -71,10 +71,10 @@ export default function ManageDepartment() {
    
   };
 
-  const reject = () => {};
+  const reject = () => {setVisibleAssignDep(false)};
 
   const onRowSelect = (event) => {
-    console.log(event.data);
+   
     const rowIndex = event.rowIndex;
   };
 
@@ -85,6 +85,7 @@ export default function ManageDepartment() {
         onClick={() => handleAssignDep(rowData)}
         severity="info"
         raised
+        className={styles.btn}
       />
     );
   };
@@ -149,6 +150,7 @@ export default function ManageDepartment() {
             label="Show all unassigned employees"
             onClick={handleShowUnassignedEmployees}
             severity="success"
+            className={styles.btn}
           />
           <DataTable
             value={departmentData}
@@ -187,11 +189,26 @@ export default function ManageDepartment() {
         group="declarative"
         visible={visibleAssignDep}
         onHide={() => setVisibleAssignDep(false)}
-        message="Are you sure you want to assign this member to deparment?"
+        message="Are you sure you want to assign this member to department?"
         header="Confirmation"
         icon="pi pi-exclamation-triangle"
-        accept={accept}
-        reject={reject}
+      
+        footer={
+    <div  className={styles.footer_btn}>
+      <Button
+        label="Yes"
+        icon="pi pi-check"
+        onClick={accept}
+        className={styles.btn}
+      />
+      <Button
+        label="No"
+        icon="pi pi-times"
+        onClick={reject}
+        className={styles.btn_cancel}
+      />
+    </div>
+  }
       />
     </div>
   );

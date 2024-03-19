@@ -49,12 +49,12 @@ export default function AssignRole() {
 
     const renderOptionsColumn = (rowData) => {
         return (
-            <Button label="Assign Roles" onClick={() => handleAssignRoles(rowData)} severity="info" raised />
+            <Button label="Assign Roles"  className={styles.btn} onClick={() => handleAssignRoles(rowData)} severity="info" raised />
         );
     };
 
     const handleAssignRoles = (rowData) => {
-        console.log(selectedUser);
+      
         setSelectedUser(rowData);
         setSelectedRoles(roles.filter(role => rowData.authorities.includes(role.role)));
         setVisibleUpdateRoles(true);
@@ -65,15 +65,14 @@ export default function AssignRole() {
       const rolesToRemove = selectedUser.authorities.filter(role => !selectedRoles.some(selectedRole => selectedRole.role === role));
       
       rolesToAdd.forEach(role => {
-          console.log(role);
+        
          User.addUserRole(selectedUser.employeeId, role.role);
          
         
       });
       
       rolesToRemove.forEach(role => {
-        console.log(role);
-          // Call function to delete role for each role in rolesToRemove
+       
           User.deleteUserRole(selectedUser.employeeId, role);
           
       });
@@ -100,8 +99,8 @@ export default function AssignRole() {
 
     const footerUpdateRoles = (
         <div className={styles.footer_buttons}>
-            <Button label="Cancel" icon="pi pi-times" onClick={() => setVisibleUpdateRoles(false)} className="p-button-text" />
-            <Button label="Confirm" icon="pi pi-check" onClick={handleConfirmUpdateRoles} autoFocus />
+            <Button label="Cancel"  className={styles.btn_cancel} icon="pi pi-times" onClick={() => setVisibleUpdateRoles(false)}  />
+            <Button label="Confirm"  className={styles.btn} icon="pi pi-check" onClick={handleConfirmUpdateRoles} autoFocus />
         </div>
     );
 
