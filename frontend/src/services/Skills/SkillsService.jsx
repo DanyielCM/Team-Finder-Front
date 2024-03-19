@@ -12,7 +12,7 @@ function getSkillCategories(orgId) {
 
 async function addSkillCategory(categoryName, depId) {
   try {
-    const user = await Api.addSkillCategory(categoryName, depId);
+    const skill = await Api.addSkillCategory(categoryName, depId);
   } catch (error) {
     console.error("Error fetching data:", error.message);
   }
@@ -66,7 +66,7 @@ function getSkillsByDepartmentAndCategory(departmentId, skillCategoryId) {
 
 async function removeSkill(skillId) {
   try {
-    const departments = await Api.removeSkill(skillId);
+    const skill = await Api.removeSkill(skillId);
   } catch (error) {
     console.log("Error fetching data:", error.message);
   }
@@ -84,6 +84,40 @@ async function updateSkill(skillId, newSkillName, newSkillDescription) {
   }
 }
 
+async function addUserSkills(employeeId,skillId,proficiencyLevel,experience) {
+  try {
+    const skill = await Api.addUserSkills(employeeId,skillId,proficiencyLevel,experience);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  }
+}
+async function removeUserSkill(userSkillId) {
+  try {
+    const skill = await Api.removeUserSkill(userSkillId);
+  } catch (error) {
+    console.log("Error fetching data:", error.message);
+  }
+}
+async function getUserSkills(employeeId) {
+  return Api.getUserSkills(employeeId)
+    .then((skills) => {
+      return skills;
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error.message);
+    });
+}
+
+async function getSkillsByOrganization(organisationId) {
+  return Api.getSkillsByOrganization(organisationId)
+    .then((skills) => {
+      return skills;
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error.message);
+    });
+}
+
 const SkillsService = {
   getSkillCategories,
   addSkillCategory,
@@ -93,5 +127,9 @@ const SkillsService = {
   getSkillsByDepartmentAndCategory,
   removeSkill,
   updateSkill,
+  addUserSkills,
+removeUserSkill,
+getUserSkills,
+getSkillsByOrganization,
 };
 export default SkillsService;

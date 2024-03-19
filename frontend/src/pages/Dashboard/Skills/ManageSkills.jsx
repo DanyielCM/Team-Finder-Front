@@ -305,6 +305,7 @@ export default function ManageSkills() {
               dataKey="id"
               onRowSelect={onSkillRowSelect}
               metaKeySelection={false}
+              paginator rows={5}
               tableStyle={{ minWidth: "67vw" }}
             >
               <Column field="skillName" header="Skill Name"></Column>
@@ -349,6 +350,7 @@ export default function ManageSkills() {
               dataKey="id"
               onRowSelect={onSkillCatRowSelect}
               metaKeySelection={false}
+              paginator rows={5}
               tableStyle={{ minWidth: "67vw" }}
             >
               <Column

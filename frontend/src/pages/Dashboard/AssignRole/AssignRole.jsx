@@ -110,7 +110,7 @@ export default function AssignRole() {
             <div className={styles.btn_container}></div>
 
             <div className="card">
-                <DataTable value={usersData} cellSelection selectionMode="single" 
+                <DataTable value={usersData} paginator rows={5} cellSelection selectionMode="single" 
                    metaKeySelection={false}
                     tableStyle={{ minWidth: '67vw' }}>
                     <Column header="No." body={(_, { rowIndex }) => rowIndex + 1} />

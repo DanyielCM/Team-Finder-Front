@@ -11,6 +11,7 @@ import Department from "./Departments/Department.jsx";
 import AssignRole from "./AssignRole/AssignRole.jsx";
 import ManageDepartment from "./Departments/ManageDepartment.jsx";
 import ManageSkills from "./Skills/ManageSkills.jsx";
+import EmployeeSkills from "./Skills/EmployeeSkills.jsx";
 import { Button } from 'primereact/button';
 
 export default function Dashboard() {
@@ -47,6 +48,7 @@ export default function Dashboard() {
         {selectedItem === "Departments" && <Department />}
         {selectedItem === "Manage department" && <ManageDepartment />}
         {selectedItem === "Skills Set" && <ManageSkills />}
+        {selectedItem === "My skills" && <EmployeeSkills />}
         </div>
         
         <SecondaryNav onSelectedItem={handlePanelItem}></SecondaryNav>

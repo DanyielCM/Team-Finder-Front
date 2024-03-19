@@ -20,7 +20,7 @@ export const MAIN_NAV_ITEMS = [
   },
   {
     icon:  user ,
-    title: "People",
+    title: "My skills",
   },
   {
     icon:  folder ,

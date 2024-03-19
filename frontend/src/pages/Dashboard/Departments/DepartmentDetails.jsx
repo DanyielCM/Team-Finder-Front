@@ -69,7 +69,7 @@ export default function DepartmentDetails({ selectedDepartment,onReturnClick  })
        <h2>{selectedDepartment.departmentName+" department members"}</h2>
        
        <Button label="Return to Main Table"  className={styles.btn}  onClick={onReturnClick} />
-       <DataTable value={departmentUsers}   tableStyle={{ minWidth: "67vw" }}>
+       <DataTable value={departmentUsers} paginator rows={5}  tableStyle={{ minWidth: "67vw" }}>
       
       <Column field="employeeUserName" header="Employee Name"></Column>
       <Column field="employeeEmail" header="Email"></Column>

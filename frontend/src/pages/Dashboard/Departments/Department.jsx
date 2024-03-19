@@ -284,6 +284,7 @@ export default function Department() {
           onSelectionChange={(e) => setSelectedCell(e.value)}
           metaKeySelection={false}
           onCellSelect={onCellSelect}
+          paginator rows={5}
           tableStyle={{ minWidth: "67vw" }}
         >
           <Column header="No." body={(_, { rowIndex }) => rowIndex + 1} />

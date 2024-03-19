@@ -29,7 +29,7 @@ export default function ManageDepartment() {
         {" "}
         <h1>Unassigned Employees</h1>
         <Button label="Return" onClick={handleReturnClick} className={styles.btn} />
-        <DataTable value={unassignedUsers} tableStyle={{ minWidth: "67vw" }}>
+        <DataTable value={unassignedUsers} paginator rows={5} tableStyle={{ minWidth: "67vw" }}>
           <Column field="employeeUserName" header="Employee Name"></Column>
           <Column field="employeeEmail" header="Email"></Column>
           <Column field="projecthours" header="Project Hours"></Column>
@@ -159,6 +159,7 @@ export default function ManageDepartment() {
             onSelectionChange={(e) => setSelectedRow(e.value)}
             metaKeySelection={false}
             onRowSelect={onRowSelect}
+            paginator rows={5}
             tableStyle={{ minWidth: "67vw" }}
           >
             <Column header="No." body={(_, { rowIndex }) => rowIndex + 1} />
