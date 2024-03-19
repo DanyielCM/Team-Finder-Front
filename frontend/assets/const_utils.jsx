@@ -28,7 +28,7 @@ export const MAIN_NAV_ITEMS = [
   },
   {
     icon:  users ,
-    title: "Departments",
+    title: "Department",
   },
   {
     icon:  envelope ,
@@ -41,11 +41,15 @@ export const SECONDARY_NAV_ITEMS_ADMIN = [
     icon:  lock ,
     title: "Administrative roles",
     description: "Assign administrative roles and manage departments",
+    background_color: "#FFBD64",
+    detail_colour: "#FFA021",
   },
   {
     icon:  file_add ,
-    title: "Team roles",
-    description: "Manage team roles",
+    title: "Departments",
+    description: "Manage departments",
+    background_color: "#A3EBD8",
+    detail_colour: "#4BE1BD",
   },
 ];
 
@@ -54,6 +58,8 @@ export const SECONDARY_NAV_ITEMS_PROJ = [
     icon:  folder ,
     title: "Create new project",
     description: "Create a project and assign the best team",
+    background_color: "#FFBD64",
+    detail_colour: "#FFA021",
   }
 ];
 
@@ -62,10 +68,14 @@ export const SECONDARY_NAV_ITEMS_DEP = [
     icon:  dep_settings ,
     title: "Manage department",
     description: "Assign new members and manage department",
+    background_color: "#FFBD64",
+    detail_colour: "#FFA021",
   },
   {
     icon:  skills ,
     title: "Skills Set",
     description: "Manage available skills set",
+    background_color: "#A3EBD8",
+    detail_colour: "#4BE1BD",
   }
 ];

@@ -43,8 +43,8 @@ export default function Dashboard() {
         />
         <div>
         {selectedItem === "Dashboard" && <Banner />}
-        {selectedItem === "Departments." && <Department />}
         {selectedItem === "Administrative roles" && <AssignRole />}
+        {selectedItem === "Departments" && <Department />}
         {selectedItem === "Manage department" && <ManageDepartment />}
         {selectedItem === "Skills Set" && <ManageSkills />}
         </div>
@@ -53,3 +53,4 @@ export default function Dashboard() {
     </div>
   );
 }
+

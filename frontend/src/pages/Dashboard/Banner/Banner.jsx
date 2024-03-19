@@ -3,6 +3,7 @@ import Avatar from "../../../../assets/avatar_male.png"
 import DateTime from "../../../components/common/DateTime";
 
 import AuthService from "../../../services/auth.service";
+import quotes from '../../../../assets/quotes.json';
 
 export default function Banner() {
   const currentUser = AuthService.getCurrentUser();
@@ -12,6 +13,12 @@ export default function Banner() {
 
   const isAdmin =authorities.includes("OrganizationAdmin");
   
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  const quotesList = quotes.quotes;
+  const randomQuote = quotesList[getRandomInt(quotesList.length)].quote;
 
   return (
     <>
@@ -34,16 +41,16 @@ export default function Banner() {
           <h1 className={styles.title}>Welcome back {currentUser}</h1>
 
           <p className={styles.motivational_quote_title}>
-            Today's motivational quote:
+            Motivational quote: 
           </p>
-          <p className={styles.motivational_quote}></p>
+          <p className={styles.motivational_quote}>{randomQuote}</p>
         </div>
 
         <img
           src={Avatar}
           alt="User avatar"
           className={styles.avatar}
-        ></img>
+        />
       </div>
     </>
   );
