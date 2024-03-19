@@ -7,7 +7,7 @@ import Panels from "./Panels";
 import AuthService from "../../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 
-export default function SecondaryNav({ onSelectedItem}) {
+export default function SecondaryNav() {
   const navigateTo = useNavigate();
   const currentUser = AuthService.getCurrentUser();
   const authorities = AuthService.getAuthority();
@@ -21,16 +21,12 @@ export default function SecondaryNav({ onSelectedItem}) {
     navigateTo("/sign-in");
   };
 
-  const handlePanelSelect = (title) => {
-    onSelectedItem(title);
-  };
-
   return (
     <div className={styles.navbar}>
       <div className={styles.icons_container}>
         <FontAwesomeIcon icon="fa-solid fa-bell" className={styles.icon_left} />
         <div>
-        <FontAwesomeIcon
+          <FontAwesomeIcon
             onClick={() => handleLogout()}
             icon="fa-solid fa-arrow-right-from-bracket"
             className={styles.icon_right}
@@ -41,8 +37,8 @@ export default function SecondaryNav({ onSelectedItem}) {
           />
         </div>
       </div>
-      <User imageSrc={ProfileImage} name={currentUser} role={authorities} />
-      <Panels  onPanelSelect={handlePanelSelect} ></Panels>
+      <User imageSrc={ProfileImage} name={currentUser} roles={authorities} />
+      <Panels></Panels>
     </div>
   );
 }
