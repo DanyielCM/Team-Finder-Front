@@ -3,9 +3,9 @@ import styles from "./Panels.module.css";
 import AuthService from "../../../services/auth.service";
 
 import Panel from "./Panel";
-import { SECONDARY_NAV_ITEMS_ADMIN } from "../../../../assets/const.utils";
-import { SECONDARY_NAV_ITEMS_PROJ } from "../../../../assets/const.utils";
-import { SECONDARY_NAV_ITEMS_DEP } from "../../../../assets/const.utils";
+import { SECONDARY_NAV_ITEMS_ADMIN } from "../../../../assets/const_utils.jsx";
+import { SECONDARY_NAV_ITEMS_PROJ } from "../../../../assets/const_utils.jsx";
+import { SECONDARY_NAV_ITEMS_DEP } from "../../../../assets/const_utils.jsx";
 import React, { useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 //theme

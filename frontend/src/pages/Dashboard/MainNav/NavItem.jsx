@@ -6,9 +6,9 @@ export default function NavItem({ icon, title }) {
 
   return (
     <li className={styles.list_item}>
-      <div>
-        <span className={styles.icons}>{icon}</span>
-        <span>{title}</span>
+      <div className={styles.container}>
+        <div className={styles.icons}>{icon}</div>
+        <div className={styles.title}>{title}</div>
       </div>
     </li>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./MainNav.module.css";
 import LogoImage from "../../../../assets/TF_logo.png";
-import OrganizationLogo from "../../../../assets/Organization_Logo.png";
-import { MAIN_NAV_ITEMS } from "../../../../assets/const.utils";
+import OrganizationLogo from "../../../../assets/organization_logo.png";
+import { MAIN_NAV_ITEMS } from "../../../../assets/const_utils.jsx";
 import NavItem from "./NavItem";
 
 export default function MainNav({ onNavItemSelect }) {
