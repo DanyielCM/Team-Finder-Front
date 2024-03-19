@@ -21,6 +21,11 @@ export default function SecondaryNav() {
     navigateTo("/sign-in");
   };
 
+  
+  const handlePanelSelect = (title) => {
+    onSelectedItem(title);
+  };
+
   return (
     <div className={styles.navbar}>
       <div className={styles.icons_container}>
@@ -38,7 +43,7 @@ export default function SecondaryNav() {
         </div>
       </div>
       <User imageSrc={ProfileImage} name={currentUser} roles={authorities} />
-      <Panels></Panels>
+      <Panels onPanelSelect={handlePanelSelect}></Panels>
     </div>
   );
 }
