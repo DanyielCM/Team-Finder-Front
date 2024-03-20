@@ -6,7 +6,6 @@ import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { Toast } from "primereact/toast";
-import { useQuery } from 'react-query';
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { classNames } from "primereact/utils";
 import AuthService from "../../../services/auth.service";
@@ -16,27 +15,10 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import styles from "./Department.module.css";
 
 export default function Department() {
-
-
-  const fetchDataAsync = async () => { // Renamed fetchData to fetchDataAsync
-    try {
-      const departmentData = await DepartmentService.getDepartments();
-      
-      const usersData = await User.getUnassignedDepartmentManagers(orgId);
-      return { departmentData, usersData };
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-
-  const { data, isLoading, isError } = useQuery('fetchData', fetchDataAsync, {
-    refetchOnWindowFocus: false,
-  });
-
   const [visibleCreate, setVisibleCreate] = useState(false);
-  const [visibleUpdateName, setVisibleUpdateName] = useState(false);
+  const [visibleUdateName, setVisibleUpdateName] = useState(false);
   const [visibleUpdateDesc, setVisibleUpdateDesc] = useState(false);
-  const [visibleUpdateManager, setVisibleUpdateManager] = useState(false);
+  const [visibleUpdateManager, setVisibleUpdateMananger] = useState(false);
   const [visible, setVisible] = useState(false);
   const [deleteRow, setDeleteRow] = useState(false);
   const [departmentId, setDepartmentId] = useState("");
@@ -44,11 +26,21 @@ export default function Department() {
   const [departmentDesc, setDepartmentDesc] = useState("");
   const [departmentManager, setDepartmentManager] = useState("");
   const [selectedCell, setSelectedCell] = useState(null);
-  const [count, setCount] = useState(false);
-  const { departmentData, usersData } = data || { departmentData: [], peopleData: [] };
+  const [fetch, setFetch] = useState();
+  
+ 
+
+  const [departmentData, setDepartmentData] = useState();
 
   const orgId = AuthService.getOrgId();
 
+  const [usersData, setUsersData] = useState([
+    {
+      employeeId: 0,
+      employeeUserName: "",
+      authorities: "",
+    },
+  ]);
   
   const collectDepartmentData = (name, description, depManager, orgId) => {
     return {
@@ -68,14 +60,14 @@ export default function Department() {
         orgId
       )
     );
-    console.log(usersData);
+
     setVisibleCreate(false);
     setDepartmentName("");
     setDepartmentDesc("");
     setDepartmentId(null);
     setDepartmentManager("");
- 
-
+    setFetch(true);
+   
    
    
    
@@ -117,11 +109,12 @@ export default function Department() {
   const acceptDelete = () => {
     DepartmentService.deleteDepartment(departmentId);
     setDeleteRow(false)
-    setCount(count+1);
-    
+    setFetch(true);
+   
+
+
+   
   };
-
-
 
   const reject = () => {setDeleteRow(false)};
 
@@ -185,13 +178,13 @@ export default function Department() {
       });
   };
 
-  useEffect(() => {
-    
-  }, [count]);
-
   
 
-
+  useEffect(() => {
+   
+    fetchData();
+    
+  }, [fetch]);
 
   const footerCreate = (
     <div className={styles.footer_buttons}>
@@ -359,7 +352,7 @@ export default function Department() {
 
       <Dialog
         header="Update department name"
-        visible={visibleUpdateName}
+        visible={visibleUdateName}
         style={{ width: "25vw" }}
         onHide={() => setVisibleUpdateName(false)}
         footer={footerUpdateName}
