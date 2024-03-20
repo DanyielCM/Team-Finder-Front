@@ -41,7 +41,7 @@ export default function Banner() {
           <h1 className={styles.title}>Welcome back {currentUser}</h1>
 
           <p className={styles.motivational_quote_title}>
-            Motivational quote: 
+            A motivational quote a day keeps the depression away: 
           </p>
           <p className={styles.motivational_quote}>{randomQuote}</p>
         </div>

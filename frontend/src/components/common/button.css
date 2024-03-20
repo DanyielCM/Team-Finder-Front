@@ -17,13 +17,12 @@
   }
   
   .button-a:hover {
-    background-color: #ffe600;
     box-shadow: 0 0 20px #6fc5ff50;
     transform: scale(1.1);
   }
   
   .button-a:active {
-    background-color: #3d94cf;
+    background-color: #ffe600;
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
     box-shadow: none;
