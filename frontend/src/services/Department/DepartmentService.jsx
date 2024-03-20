@@ -2,7 +2,8 @@ import Api from './DepartmentAPI.service.jsx'
 import AuthService from "../../services/auth.service";
 import React from 'react';
 
-
+const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL1='http://localhost:8081';
 
 
 function parseDepartmentData(jsonData) {
@@ -20,7 +21,7 @@ const createDepartment = (data) => {
 
   console.log(token);
   console.log("Data:", data);
-  return fetch("https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/api/createDepartment", {
+  return fetch(`${API_URL}/api/createDepartment`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -60,15 +61,15 @@ const createDepartment = (data) => {
             console.error("Error fetching data:", error.message);
         });
 }
-function getDepartmentByManager() {
-  const orgId = localStorage.getItem("orgid");
+function getDepartmentByManager(orgId) {
+
 
   return Api.getDepartments(orgId)
       .then(departments => {
         
-
-          const filteredDepartments = departments.filter(dept => dept.departmentManager.employeeUserName===JSON.parse(localStorage.getItem('user')));
           
+          const filteredDepartments = departments.filter(dept => dept.departmentManager.employeeUserName===JSON.parse(localStorage.getItem('user')));
+         
           const parse = parseDepartmentData(filteredDepartments);
           return parse;
       })

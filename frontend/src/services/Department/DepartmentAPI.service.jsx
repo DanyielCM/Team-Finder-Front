@@ -5,6 +5,7 @@ import AuthService from "../../services/auth.service";
 import axios from 'axios';
 
 const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
+const API_URL1='http://localhost:8081';
 
 const token=AuthService.getJwt();
 

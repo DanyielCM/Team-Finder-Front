@@ -3,7 +3,7 @@
 import AuthService from "../../services/auth.service";
 
 const API_URL='https://atc-2024-letsdoit-be-linux-web-app.azurewebsites.net';
-const API_UR1='http://localhost:8081';
+const API_URL1='http://localhost:8081';
 
 const token=AuthService.getJwt();
 
@@ -318,6 +318,9 @@ const getSkillCategories = async (orgId) => {
   };
 
 
+
+
+
   
 
 
@@ -339,17 +342,3 @@ getSkillsByOrganization,
   };
   export default SkillsAPI;
 
-  /*Skills urile categoriei
-Skills urile categoriei
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/addSkillsToCategory/{skillName}/{skillDescription}/{employeeId}/{skillCategoryId}/{departmentId}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/getSkillsByDepartmentAndCategory/{departmentId}/{skillCategoryId}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/getSkillsByOrganization/{organizationId}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/removeSkill/{skillId}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/updateSkill/{skillId}/{newSkillName}/{newSkillDescription}
-
-
-Userskills:
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/addUserSkills/{employeeId}/{skillId}/{proficiencyLevel}/{experience}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/removeUserSkill/{userSkillId}
-https:/atc-2024-letsdoit-be-linux-web-app.azurewebsites.net/getUserSkills/{employeeId}
- */

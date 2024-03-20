@@ -128,8 +128,9 @@ export default function ManageSkills() {
       .catch((error) => {
         console.error("Error:", error);
       });
-    DepartmentService.getDepartmentByManager()
+    DepartmentService.getDepartmentByManager(orgId)
       .then((department) => {
+        console.log("dep:",department);
         setDepartment(department);
       })
       .catch((error) => {
@@ -177,9 +178,11 @@ export default function ManageSkills() {
   };
 
   const onSkillCatRowSelect = (event) => {
-    setSelectedSkill(event.data);
-    getSkills(department[0].departmentId, event.data.skillCategoryId);
-    setShowExampleTable(true);
+    console.log(event.data);
+    console.log(skillCatData);
+    //setSelectedSkill(event.data);
+   // getSkills(department[0].departmentId, event.data.skillCategoryId);
+    //setShowExampleTable(true);
   };
 
   const onSkillRowSelect = (event) => {
@@ -305,7 +308,6 @@ export default function ManageSkills() {
               dataKey="id"
               onRowSelect={onSkillRowSelect}
               metaKeySelection={false}
-              paginator rows={5}
               tableStyle={{ minWidth: "67vw" }}
             >
               <Column field="skillName" header="Skill Name"></Column>

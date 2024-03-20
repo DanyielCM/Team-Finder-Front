@@ -63,6 +63,10 @@
     width: 300px
    
   }
+  .b_container{
+    display: flex;
+    justify-content: space-between;
+  }
   
   
   
