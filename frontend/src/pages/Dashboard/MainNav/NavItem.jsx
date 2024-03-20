@@ -6,6 +6,7 @@ export default function NavItem({ icon, title, onClick }) {
   const handleClick = () => {
     onClick(title); // Invoke the onClick handler with the title of the panel item
   };
+  
   return (
     <li className={styles.list_item} onClick={handleClick}>
       <div className={styles.container}>

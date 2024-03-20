@@ -1,15 +1,8 @@
-
-.register-main-page{
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    
-    
-    }
-  
-      
-      
+.register-main-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}

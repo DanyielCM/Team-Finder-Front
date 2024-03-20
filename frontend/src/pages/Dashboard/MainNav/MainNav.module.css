@@ -39,6 +39,10 @@
   cursor: pointer;
 }
 
+.list_item:active{
+  color: #492E87;
+}
+
 .icons {
   flex: 0 0 30%;
   min-width: 2vw;

@@ -1,15 +1,10 @@
 .background {
   display: flex;
   height: 100vh;
-  color: #0A1D56;
+  color: #0a1d56;
 }
 
-.tableheader{
-
-display: flex;
-justify-content: space-between;
+.tableheader {
+  display: flex;
+  justify-content: space-between;
 }
-
-
-
-
