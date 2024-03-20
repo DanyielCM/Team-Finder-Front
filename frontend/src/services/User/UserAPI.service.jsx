@@ -263,7 +263,7 @@ const getUnassignedDepartmentManagers = async (orgId) => {
  
   try {
     const response = await fetch(
-      `${API_URL}/api/api/getUnassignedDepartmentManagers?orgId=${orgId}`,
+      `${API_URL}/api/getUnassignedDepartmentManagers?orgId=${orgId}`,
       requestOptions
     );
     if (!response.ok) {
